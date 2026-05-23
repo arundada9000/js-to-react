@@ -1436,7 +1436,7 @@ kbd {
    =================================================== */
 
 /* Dark Mode Variables */
-[data-theme=""dark""] {
+[data-theme="dark"] {
     --c-bg: #121212;
     --c-surface: #1e1e1e;
     --c-surface-hover: #2a2a2a;
@@ -1452,6 +1452,10 @@ kbd {
     --c-success-bg: rgba(48,209,88,0.15);
     --c-warning-bg: rgba(255,159,10,0.15);
     --c-code-bg: #0d0d12;
+}
+
+[data-theme="dark"] .topbar {
+    background: rgba(18, 18, 18, 0.85);
 }
 
 /* Widgets */
@@ -1637,4 +1641,130 @@ kbd {
 .diff-easy { background: var(--c-success-bg); color: var(--c-success); }
 .diff-medium { background: var(--c-warning-bg); color: var(--c-warning); }
 .diff-hard { background: var(--c-accent-bg); color: var(--c-accent); }
+
+/* ---------- Custom Scrollbar ---------- */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--c-bg);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, var(--c-primary-light), var(--c-primary));
+    border-radius: 10px;
+    border: 2px solid var(--c-bg);
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, var(--c-primary), #4a48c4);
+}
+
+::-webkit-scrollbar-corner {
+    background: var(--c-bg);
+}
+
+/* Firefox scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--c-primary) var(--c-bg);
+}
+
+/* ---------- Custom Context Menu ---------- */
+#custom-context-menu {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+#custom-context-menu.visible {
+    pointer-events: auto;
+    opacity: 1;
+}
+
+.ctx-menu {
+    position: fixed;
+    min-width: 220px;
+    background: var(--c-surface);
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15), 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 6px;
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    animation: ctxSlideIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+}
+
+[data-theme="dark"] .ctx-menu {
+    background: rgba(30, 30, 30, 0.95);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 4px 12px rgba(0, 0, 0, 0.25), inset 0 0.5px 0 rgba(255,255,255,0.06);
+}
+
+@keyframes ctxSlideIn {
+    from {
+        opacity: 0;
+        transform: scale(0.92) translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+.ctx-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    padding: 9px 14px;
+    border: none;
+    background: none;
+    color: var(--c-text);
+    font-size: 0.85rem;
+    font-weight: 500;
+    font-family: 'Inter', sans-serif;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.12s ease;
+    text-align: left;
+}
+
+.ctx-item i {
+    width: 18px;
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--c-text-secondary);
+    transition: color 0.12s ease;
+}
+
+.ctx-item:hover {
+    background: var(--c-primary);
+    color: #fff;
+}
+
+.ctx-item:hover i {
+    color: rgba(255,255,255,0.85);
+}
+
+.ctx-item:active {
+    transform: scale(0.97);
+}
+
+.ctx-item.ctx-danger:hover {
+    background: #ff3b30;
+}
+
+.ctx-separator {
+    height: 1px;
+    background: var(--c-border);
+    margin: 4px 8px;
+}
 
