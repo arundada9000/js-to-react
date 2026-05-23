@@ -927,7 +927,14 @@ input.addEventListener("input", (e) => {
 
 function initProjects() {
   const section = document.getElementById('projects-section');
-  if (!section) return;
+  if (!section) {
+    console.error('[Projects] #projects-section not found in the DOM!');
+    return;
+  }
+  
+  if (section.hasAttribute('data-initialized')) return;
+  section.setAttribute('data-initialized', 'true');
+  console.log('[Projects] Initializing projects section...');
   
   let html = `<div class="info-header" style="margin-bottom: 30px;">
     <i class="fa-solid fa-hammer" style="font-size: 2rem; color: #ff6b81;"></i>
@@ -1012,7 +1019,17 @@ function initProjects() {
   if (window.Prism) {
     Prism.highlightAllUnder(section);
   }
-});
+  
+  console.log('[Projects] Initialization complete!');
+}
+
+// Ensure the function runs
+if (document.readyState === 'loading') {
+  document.addEventListener('DOMContentLoaded', initProjects);
+  window.addEventListener('load', initProjects); // fallback
+} else {
+  initProjects();
+}
 
 function escapeHtml(str) {
   return str

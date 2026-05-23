@@ -120,26 +120,76 @@ document.addEventListener('DOMContentLoaded', () => {
       maxBtn.addEventListener('click', () => {
         playSound('mac-click');
         
-        if (!runnerContainer.classList.contains('maximized')) {
-          // Maximize
-          runnerContainer.parentNode.insertBefore(placeholder, runnerContainer);
-          document.body.appendChild(runnerContainer);
-          
-          // Request animation frame ensures the DOM placement is painted before the class triggers the animation
-          requestAnimationFrame(() => {
-            runnerContainer.classList.add('maximized');
-            document.body.classList.add('has-maximized-terminal');
-          });
-        } else {
-          // Restore
-          runnerContainer.classList.remove('maximized');
+        // Create a fullscreen overlay with a fresh terminal
+        const overlay = document.createElement('div');
+        overlay.className = 'terminal-fullscreen-overlay';
+        
+        // Copy current editor and output content
+        const currentCode = editor.value;
+        const currentOutput = output.innerHTML;
+        
+        overlay.innerHTML = `
+          <div class="fullscreen-terminal">
+            <div class="runner-header">
+              <div class="mac-buttons">
+                <div class="mac-btn close-btn" title="Close"></div>
+                <div class="mac-btn min-btn" title="Minimize"></div>
+                <div class="mac-btn max-btn" title="Exit Fullscreen"></div>
+              </div>
+              <span class="runner-title">JS Code Runner — Fullscreen</span>
+              <button class="btn-run"><i class="fa-solid fa-play"></i> Run</button>
+            </div>
+            <div class="runner-body" style="display:flex; flex-direction:column; flex:1; min-height:0;">
+              <textarea class="runner-editor" spellcheck="false" style="flex:1; resize:none; min-height:0;">${currentCode.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</textarea>
+              <pre class="runner-output" style="flex:1; overflow-y:auto; max-height:none;">${currentOutput}</pre>
+            </div>
+          </div>
+        `;
+        
+        document.body.appendChild(overlay);
+        document.body.classList.add('has-maximized-terminal');
+        
+        // Force reflow then trigger entrance animation
+        void overlay.offsetWidth;
+        overlay.classList.add('visible');
+        
+        const fsEditor = overlay.querySelector('.runner-editor');
+        const fsOutput = overlay.querySelector('.runner-output');
+        const fsRunBtn = overlay.querySelector('.btn-run');
+        const fsCloseBtn = overlay.querySelector('.close-btn');
+        const fsMaxBtn = overlay.querySelector('.max-btn');
+        
+        // Unescape textarea value
+        fsEditor.value = currentCode;
+        
+        // Run button in fullscreen
+        fsRunBtn.addEventListener('click', () => {
+          executeCode(fsEditor.value, fsOutput);
+          // Sync back to original
+          editor.value = fsEditor.value;
+        });
+        
+        function closeFullscreen() {
+          playSound('mac-click');
+          overlay.classList.remove('visible');
           document.body.classList.remove('has-maximized-terminal');
-          
-          if (placeholder.parentNode) {
-            placeholder.parentNode.insertBefore(runnerContainer, placeholder);
-            placeholder.remove();
+          // Sync any changes back
+          editor.value = fsEditor.value;
+          output.innerHTML = fsOutput.innerHTML;
+          setTimeout(() => overlay.remove(), 300);
+        }
+        
+        fsCloseBtn.addEventListener('click', closeFullscreen);
+        fsMaxBtn.addEventListener('click', closeFullscreen);
+        
+        // Escape key closes fullscreen
+        function handleEsc(e) {
+          if (e.key === 'Escape') {
+            closeFullscreen();
+            document.removeEventListener('keydown', handleEsc);
           }
         }
+        document.addEventListener('keydown', handleEsc);
       });
       
       const codeBlock = wrapper.querySelector('code');
