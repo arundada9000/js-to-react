@@ -21,7 +21,7 @@ const text = document.getElementById("quote-text");
 
 btn.addEventListener("click", () => {
   const randomIndex = Math.floor(Math.random() * quotes.length);
-  text.textContent = `"\${quotes[randomIndex]}"`;
+  text.textContent = \`"\${quotes[randomIndex]}"\`;
 });`
   },
   {
@@ -86,7 +86,7 @@ function renderExpenses() {
   let total = 0;
   expenses.forEach(exp => {
     const li = document.createElement("li");
-    li.textContent = `\${exp.name}: Rs. \${exp.cost}`;
+    li.textContent = \`\${exp.name}: Rs. \${exp.cost}\`;
     list.appendChild(li);
     total += exp.cost;
   });
@@ -131,21 +131,21 @@ document.getElementById("search-btn").addEventListener("click", async () => {
   
   try {
     // Note: This uses a free geocoding + weather API pattern
-    const geoRes = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=\${city}&count=1`);
+    const geoRes = await fetch(\`https://geocoding-api.open-meteo.com/v1/search?name=\${city}&count=1\`);
     const geoData = await geoRes.json();
     
     if (!geoData.results) throw new Error("City not found");
     
     const { latitude, longitude, name } = geoData.results[0];
     
-    const weatherRes = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=\${latitude}&longitude=\${longitude}&current_weather=true`);
+    const weatherRes = await fetch(\`https://api.open-meteo.com/v1/forecast?latitude=\${latitude}&longitude=\${longitude}&current_weather=true\`);
     const weatherData = await weatherRes.json();
     
     const temp = weatherData.current_weather.temperature;
-    info.innerHTML = `<h3>\${name}</h3><p>\${temp}°C</p>`;
+    info.innerHTML = \`<h3>\${name}</h3><p>\${temp}°C</p>\`;
     
   } catch (error) {
-    info.innerHTML = `<p style="color:red">\${error.message}</p>`;
+    info.innerHTML = \`<p style="color:red">\${error.message}</p>\`;
   }
 });`
   },
