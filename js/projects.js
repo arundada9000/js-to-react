@@ -220,11 +220,11 @@ document.addEventListener('DOMContentLoaded', () => {
   projectIdeas.forEach(p => {
     html += `
       <div class="project-card">
-        <span class="project-difficulty diff-\${p.difficulty}">\${p.difficulty.toUpperCase()}</span>
-        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">\${p.title}</h3>
-        <p style="color: var(--c-text-secondary); margin-bottom: 20px;">\${p.description}</p>
+        <span class="project-difficulty diff-${p.difficulty}">${p.difficulty.toUpperCase()}</span>
+        <h3 style="font-size: 1.3rem; margin-bottom: 12px;">${p.title}</h3>
+        <p style="color: var(--c-text-secondary); margin-bottom: 20px;">${p.description}</p>
         <div class="code-container">
-          <pre><code class="language-javascript">\${p.code}</code></pre>
+          <pre><code class="language-javascript">${p.code}</code></pre>
         </div>
       </div>
     `;
