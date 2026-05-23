@@ -58,41 +58,43 @@
 
             <!-- Top bar -->
             <header class="topbar" id="topbar">
-                <button class="topbar-menu" id="menu-toggle" aria-label="Toggle menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-                <div class="topbar-search">
-                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
-                    <input type="text" id="search-input" placeholder="Search exercises..." autocomplete="off">
-                    <button class="search-clear" id="search-clear" aria-label="Clear search">
-                        <i class="fa-solid fa-xmark"></i>
+                <div class="topbar-inner">
+                    <button class="topbar-menu" id="menu-toggle" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars"></i>
                     </button>
-                </div>
 
-                <div class="topbar-right">
-                    <!-- Pomodoro & LoFi Widgets -->
-                    <div id="pomodoro-widget" class="widget-hidden">
-                        <span id="pomo-time">25:00</span>
-                        <button id="pomo-toggle"><i class="fa-solid fa-play"></i></button>
+                    <div class="topbar-search">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="search-input" placeholder="Search exercises..." autocomplete="off">
+                        <button class="search-clear" id="search-clear" aria-label="Clear search">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
                     </div>
-                    <div id="lofi-widget" class="widget-hidden">
-                        <button id="lofi-toggle" title="Play Lo-Fi Beats"><i class="fa-solid fa-headphones"></i></button>
-                        <div id="lofi-player"></div>
-                    </div>
-                    <!-- Dark Mode Toggle -->
-                    <button class="topbar-btn" id="theme-toggle" title="Toggle Dark Mode">
-                        <i class="fa-solid fa-moon"></i>
-                    </button>
-                    <div class="progress-pill" id="progress-pill">
-                        <span id="progress-text">0 / 0</span>
-                        <div class="progress-track">
-                            <div class="progress-fill" id="progress-bar"></div>
+
+                    <div class="topbar-right">
+                        <!-- Pomodoro & LoFi Widgets -->
+                        <div id="pomodoro-widget" class="widget-hidden">
+                            <span id="pomo-time">25:00</span>
+                            <button id="pomo-toggle"><i class="fa-solid fa-play"></i></button>
                         </div>
+                        <div id="lofi-widget" class="widget-hidden">
+                            <button id="lofi-toggle" title="Play Lo-Fi Beats"><i class="fa-solid fa-headphones"></i></button>
+                            <div id="lofi-player"></div>
+                        </div>
+                        <!-- Dark Mode Toggle -->
+                        <button class="topbar-btn" id="theme-toggle" title="Toggle Dark Mode">
+                            <i class="fa-solid fa-moon"></i>
+                        </button>
+                        <div class="progress-pill" id="progress-pill">
+                            <span id="progress-text">0 / 0</span>
+                            <div class="progress-track">
+                                <div class="progress-fill" id="progress-bar"></div>
+                            </div>
+                        </div>
+                        <button class="topbar-btn" id="reset-btn" title="Reset all progress">
+                            <i class="fa-solid fa-rotate-left"></i>
+                        </button>
                     </div>
-                    <button class="topbar-btn" id="reset-btn" title="Reset all progress">
-                        <i class="fa-solid fa-rotate-left"></i>
-                    </button>
                 </div>
             </header>
 
@@ -180,8 +182,8 @@
                     </div>
                 </section>
 
-            </div>
                 <section class="projects-section" id="projects-section"></section>
+            </div>
         </main>
 
         <!-- Back to Top -->
@@ -250,6 +252,7 @@
     <script src="js/curriculum.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-css.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/projects.js"></script>
     <script src="js/darkmode.js"></script>

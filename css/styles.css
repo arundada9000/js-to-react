@@ -319,6 +319,15 @@ body {
     display: flex;
     align-items: center;
     padding: 0 28px;
+}
+
+.topbar-inner {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     gap: 16px;
 }
 
@@ -465,7 +474,7 @@ body {
 
 /* ---------- Content ---------- */
 .content {
-    max-width: 880px;
+    max-width: 1080px;
     margin: 0 auto;
     padding: 32px 28px 80px;
     width: 100%;
@@ -1713,16 +1722,119 @@ kbd {
 
 /* Projects Section */
 .projects-section {
-    padding: 40px 0;
+    padding: 40px 0 0 0;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin-top: 20px;
 }
 
 .project-card {
     background: var(--c-surface);
     border: 1px solid var(--c-border);
-    border-radius: var(--r-lg);
-    padding: 24px;
-    margin-bottom: 24px;
+    border-radius: var(--r-xl);
+    padding: 28px;
     box-shadow: var(--shadow-sm);
+    transition: all var(--t-normal);
+}
+
+.project-card:hover {
+    box-shadow: var(--shadow-md);
+    transform: translateY(-2px);
+}
+
+.project-card-header {
+    margin-bottom: 20px;
+}
+
+.tab-container {
+    border: 1px solid var(--c-border);
+    border-radius: var(--r-md);
+    overflow: hidden;
+    background: var(--c-code-bg);
+}
+
+.tab-bar {
+    display: flex;
+    background: rgba(0, 0, 0, 0.25);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 12px;
+    align-items: center;
+    gap: 6px;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 6px 14px;
+    border-radius: var(--r-sm);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--t-fast);
+}
+
+.tab-btn:hover {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-btn.active {
+    color: #fff;
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.copy-btn {
+    margin-left: auto;
+    background: none;
+    border: 1.5px solid rgba(255, 255, 255, 0.15);
+    color: rgba(255, 255, 255, 0.8);
+    padding: 5px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all var(--t-fast);
+}
+
+.copy-btn:hover {
+    border-color: #fff;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.tab-contents {
+    position: relative;
+}
+
+.tab-content {
+    display: none;
+    padding: 0;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.tab-content pre {
+    margin: 0;
+    padding: 16px;
+    background: transparent !important;
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.tab-content code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.5;
 }
 
 .project-difficulty {

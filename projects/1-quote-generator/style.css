@@ -1,0 +1,71 @@
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f0f0f3;
+  margin: 0;
+  transition: background 0.8s ease;
+}
+
+.quote-card {
+  background: #ffffff;
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  max-width: 500px;
+  width: 90%;
+  text-align: center;
+}
+
+.quote-box {
+  margin-bottom: 30px;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: #5856d6;
+  opacity: 0.15;
+  margin-bottom: 15px;
+}
+
+#quote-text {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1d1d1f;
+  line-height: 1.6;
+  margin: 0 0 10px 0;
+}
+
+#quote-author {
+  font-size: 0.95rem;
+  color: #6e6e73;
+  font-style: italic;
+  margin: 0;
+}
+
+#quote-btn {
+  background: #5856d6;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+#quote-btn:hover {
+  background: #4a48c4;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(88, 86, 214, 0.2);
+}
+
+#quote-btn:active {
+  transform: translateY(0);
+}

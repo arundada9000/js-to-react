@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simple Expense Tracker</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="expense-card">
+    <h2>Expense Tracker</h2>
+    
+    <div class="input-form">
+      <input id="item-name" type="text" placeholder="Item name (e.g. Momo)">
+      <input id="item-cost" type="number" placeholder="Cost (Rs.)">
+      <button id="add-btn">Add Item</button>
+    </div>
+
+    <ul id="expense-list"></ul>
+    
+    <div class="summary">
+      Total Spending: <span class="total">Rs. <strong id="total-cost">0</strong></span>
+    </div>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>
