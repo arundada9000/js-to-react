@@ -377,19 +377,21 @@
     <script src="js/gamification.js"></script>
     <script src="js/flashcards.js"></script>
     <script src="js/contextmenu.js"></script>
-    <script src="js/console-easter-egg.js"></script>
+    <!-- PWA Install Button -->
+    <button id="pwa-install-btn" class="pwa-install-btn" aria-label="Install app">
+      <i class="fa-solid fa-download" aria-hidden="true"></i>
+      <span class="pwa-install-text">Install App</span>
+    </button>
 
-    <script>
-      if ('serviceWorker' in navigator) {
-        window.addEventListener('load', function () {
-          navigator.serviceWorker.register('/sw.js').then(function (reg) {
-            console.log('SW registered: ' + reg.scope);
-          }).catch(function (err) {
-            console.log('SW registration failed: ' + err);
-          });
-        });
-      }
-    </script>
+    <!-- Update Toast -->
+    <div id="pwa-update-toast" class="pwa-update-toast" role="alert">
+      <span class="pwa-update-msg">A new version is available!</span>
+      <button id="pwa-update-btn" class="pwa-update-btn">Update</button>
+      <button class="pwa-update-close" id="pwa-update-close" aria-label="Dismiss">&times;</button>
+    </div>
+
+    <script src="js/console-easter-egg.js"></script>
+    <script src="js/pwa-install.js"></script>
 
 </body>
 

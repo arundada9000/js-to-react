@@ -1,6 +1,6 @@
-var CACHE_NAME = "js-to-react-v2";
-var STATIC_CACHE = "js-to-react-static-v2";
-var CDN_CACHE = "js-to-react-cdn-v2";
+var CACHE_NAME = "js-to-react-v3";
+var STATIC_CACHE = "js-to-react-static-v3";
+var CDN_CACHE = "js-to-react-cdn-v3";
 
 var urlsToCache = [
   "/",
@@ -17,6 +17,7 @@ var urlsToCache = [
   "/js/flashcards.js",
   "/js/contextmenu.js",
   "/js/console-easter-egg.js",
+  "/js/pwa-install.js",
   "/manifest.json",
   "/assets/logos/cfc-logo.png",
   "/assets/icons/icon-192x192.png",
@@ -59,6 +60,12 @@ self.addEventListener("activate", function (event) {
     })
   );
   self.clients.claim();
+});
+
+self.addEventListener("message", function (event) {
+  if (event.data && event.data.type === "SKIP_WAITING") {
+    self.skipWaiting();
+  }
 });
 
 function isCdnRequest(url) {

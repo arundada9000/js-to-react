@@ -2084,6 +2084,145 @@ input:focus-visible {
   top: 0;
 }
 
+/* ---------- PWA Install Button ---------- */
+.pwa-install-btn {
+  position: fixed;
+  bottom: 24px;
+  left: calc(var(--sidebar-w) + 24px);
+  z-index: 50;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  background: linear-gradient(135deg, var(--c-primary), var(--c-primary-light));
+  color: #fff;
+  border: none;
+  border-radius: var(--r-pill);
+  font-size: 0.9rem;
+  font-weight: 700;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 24px rgba(88, 86, 214, 0.35);
+  transform: translateY(100px);
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  pointer-events: none;
+}
+
+.pwa-install-btn.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pwa-install-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 32px rgba(88, 86, 214, 0.45);
+}
+
+.pwa-install-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+@media (max-width: 900px) {
+  .pwa-install-btn {
+    left: 24px;
+    bottom: 16px;
+    padding: 10px 18px;
+    font-size: 0.82rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pwa-install-btn .pwa-install-text {
+    display: none;
+  }
+  .pwa-install-btn {
+    padding: 12px;
+    border-radius: 50%;
+    width: 48px;
+    height: 48px;
+    justify-content: center;
+  }
+}
+
+/* ---------- PWA Update Toast ---------- */
+.pwa-update-toast {
+  position: fixed;
+  bottom: 84px;
+  right: 24px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px 12px 20px;
+  background: var(--c-surface);
+  border: 1.5px solid var(--c-primary-light);
+  border-radius: var(--r-lg);
+  box-shadow: var(--shadow-lg), var(--shadow-glow);
+  transform: translateY(30px);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  font-family: Inter, sans-serif;
+}
+
+.pwa-update-toast.visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.pwa-update-msg {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--c-text);
+  white-space: nowrap;
+}
+
+.pwa-update-btn {
+  padding: 6px 14px;
+  background: var(--c-primary);
+  color: #fff;
+  border: none;
+  border-radius: var(--r-pill);
+  font-size: 0.78rem;
+  font-weight: 700;
+  font-family: Inter, sans-serif;
+  cursor: pointer;
+  transition: all var(--t-fast);
+}
+
+.pwa-update-btn:hover {
+  background: var(--c-primary-light);
+  transform: translateY(-1px);
+}
+
+.pwa-update-close {
+  background: none;
+  border: none;
+  color: var(--c-text-tertiary);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 0 4px;
+  line-height: 1;
+  transition: color var(--t-fast);
+}
+
+.pwa-update-close:hover {
+  color: var(--c-text);
+}
+
+@media (max-width: 480px) {
+  .pwa-update-toast {
+    right: 12px;
+    left: 12px;
+    bottom: 76px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
+
 /* ---------- Fullscreen Terminal Overrides ---------- */
 body.has-maximized-terminal {
   overflow: hidden; /* Prevent background scrolling */
