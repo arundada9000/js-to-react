@@ -19,6 +19,8 @@ var urlsToCache = [
   "/js/console-easter-egg.js",
   "/js/pwa-install.js",
   "/manifest.json",
+  "/robots.txt",
+  "/sitemap.xml",
   "/assets/logos/cfc-logo.png",
   "/assets/icons/icon-192x192.png",
   "/assets/icons/icon-512x512.png",
