@@ -36,7 +36,8 @@ This project is a **comprehensive JavaScript curriculum** built as a single-page
 - ✅ Pomodoro & Lo-Fi widgets
 - ✅ Dark mode
 - ✅ Progress tracking (localStorage)
-- 🚧 PWA support *(coming soon)*
+- ✅ PWA support (installable, offline caching)
+- ✅ SEO (JSON-LD, OG tags, Twitter Cards)
 
 ## Screenshots
 

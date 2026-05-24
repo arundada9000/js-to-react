@@ -7,161 +7,69 @@
 **Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
 **Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
 
-> ⚠️ **Status:** Planned - implementation pending icon assets.  
-> This guide outlines the steps to convert this project into a fully installable Progressive Web App.
+> ✅ **Status:** Implemented. The app is now a fully installable Progressive Web App.
 
 ---
 
+## Implementation Summary
+
+| Feature | Status | File |
+|---------|--------|------|
+| Web App Manifest | ✅ Done | `/manifest.json` |
+| Service Worker | ✅ Done | `/sw.js` |
+| Offline 404 Page | ✅ Done | `/404.html` |
+| Apple Touch Icons | ✅ Done | `assets/icons/` |
+| PWA Meta Tags | ✅ Done | `index.html` |
+| HTTPS | ✅ Done | Vercel |
+
 ## Checklist
 
-- [ ] App icons (all required sizes)
-- [ ] `manifest.json`
-- [ ] Service worker
-- [ ] Offline fallback page
-- [ ] Meta tags for PWA
-- [ ] HTTPS deployment
-- [ ] Lighthouse audit
+- [x] App icons (all required sizes in `assets/icons/`)
+- [x] `manifest.json` with screenshots
+- [x] Service worker with cache-first strategy
+- [x] Offline fallback (404 page)
+- [x] Meta tags for PWA (`theme-color`, `apple-touch-icon`)
+- [x] JSON-LD structured data for SEO
+- [x] HTTPS deployment (Vercel)
+- [ ] Lighthouse audit verification
 
-## 1. App Icons
+## Caching Strategy
 
-Required icon sizes for PWA:
+The service worker (`/sw.js`) uses three caches:
 
-| Size | Purpose |
-|------|---------|
-| 48×48 | Browser |
-| 72×72 | - |
-| 96×96 | - |
-| 128×128 | - |
-| 144×144 | - |
-| 152×152 | iOS touch icon |
-| 192×192 | Android splash |
-| 384×384 | - |
-| 512×512 | Install manifest |
+| Cache | Strategy | Contents |
+|-------|----------|----------|
+| `js-to-react-static-v2` | Cache-first | Local CSS, JS, assets, manifest |
+| `js-to-react-cdn-v2` | Network-first (stale) | CDN resources (Prism, Font Awesome, Google Fonts) |
+| `js-to-react-v2` | Cache-first | App shell pages |
 
-Current logos in `assets/logos/`:
-- `cfc-logo.png`
-- `CFC Rupandehi Official Logo.png`
+## Files Created
 
-Once proper icons are ready, place them in `assets/icons/`.
+### `/manifest.json`
+Web app manifest with all 10 icon sizes, theme/background colors, screenshots for the PWA install prompt, and full metadata.
 
-## 2. Manifest JSON
+### `/sw.js`
+Service worker with:
+- Cache-first strategy for local assets (instant loading)
+- Network-first with cache fallback for CDN resources
+- Offline navigation fallback to 404 page
+- Self-skip waiting and clients claim for updates
 
-Create `manifest.json` in the root:
+### `/404.html`
+Styled 404 page matching the app design. Used as both a standard 404 and offline fallback.
 
-```json
-{
-  "name": "JS → React Roadmap",
-  "short_name": "JS→React",
-  "description": "A structured JavaScript curriculum preparing you for React",
-  "start_url": "/index.html",
-  "display": "standalone",
-  "background_color": "#f5f5f7",
-  "theme_color": "#5856d6",
-  "orientation": "any",
-  "icons": [
-    {
-      "src": "assets/icons/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png"
-    },
-    {
-      "src": "assets/icons/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
-}
-```
-
-## 3. Service Worker
-
-Create `sw.js` in the root:
-
-```javascript
-const CACHE_NAME = 'js-to-react-v1';
-const urlsToCache = [
-  '/',
-  '/index.html',
-  '/css/styles.css',
-  '/js/curriculum.js',
-  '/js/app.js',
-  '/js/darkmode.js',
-  '/js/projects.js',
-  '/js/pomodoro-lofi.js',
-  '/js/coderunner.js',
-  '/js/gamification.js',
-  '/js/flashcards.js',
-  '/js/contextmenu.js'
-];
-
-self.addEventListener('install', event => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => cache.addAll(urlsToCache))
-  );
-});
-
-self.addEventListener('fetch', event => {
-  event.respondWith(
-    caches.match(event.request)
-      .then(response => response || fetch(event.request))
-  );
-});
-
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    caches.keys().then(cacheNames =>
-      Promise.all(
-        cacheNames
-          .filter(name => name !== CACHE_NAME)
-          .map(name => caches.delete(name))
-      )
-    )
-  );
-});
-```
-
-## 4. Register Service Worker
-
-Add to `index.html` before closing `</body>`:
-
-```html
-<script>
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js');
-    });
-  }
-</script>
-```
-
-## 5. Offline Page
-
-Create `offline.html` as a fallback when the user is offline and the page isn't cached.
-
-## 6. PWA Meta Tags
-
-Already added (in `index.html`):
-- `<meta name="theme-color" content="#5856d6">`
-
-Add iOS-specific:
-```html
-<link rel="apple-touch-icon" href="assets/icons/icon-152.png">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default">
-```
-
-## 7. Testing
+## Testing
 
 Run Lighthouse audit in Chrome DevTools:
-1. Open DevTools → Lighthouse tab
+1. Open DevTools -> Lighthouse tab
 2. Check **Progressive Web App**
 3. Generate report
 4. Fix any issues
 
-## 8. Deployment
-
-Ensure HTTPS is enabled on your hosting provider. Vercel (pre-mern.vercel.app) provides HTTPS by default.
+To test offline:
+1. Open DevTools -> Application -> Service Workers
+2. Check **Offline** checkbox
+3. Reload the page - it should load from cache
 
 ---
 

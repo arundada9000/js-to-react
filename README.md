@@ -44,10 +44,11 @@ Open `index.html` in your browser - no build step, no dependencies.
 
 [Full Documentation →](docs/index.md)
 
-## Upcoming
+## PWA
 
-- Progressive Web App (PWA) with offline support
-- More icons and splash screens
+This app is a fully installable Progressive Web App with offline caching via service worker. Open in Chrome/Edge and click the install icon in the address bar.
+
+## Upcoming
 
 ## License
 

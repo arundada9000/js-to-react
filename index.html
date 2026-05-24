@@ -7,21 +7,94 @@
     <meta name="theme-color" content="#5856d6">
     <meta name="author" content="Arun Neupane">
     <meta name="description"
-        content="A comprehensive JavaScript curriculum designed to prepare you for React development.">
+        content="A comprehensive JavaScript curriculum designed to prepare you for React development. 10 phases, 100+ exercises, code runner, flashcards, and more.">
+    <meta name="keywords" content="javascript, react, curriculum, roadmap, learning, programming, mern, tutorial">
+    <meta name="application-name" content="JS \u2192 React Roadmap">
+
+    <!-- Manifest -->
+    <link rel="manifest" href="/manifest.json">
 
     <!-- Open Graph / Social -->
-    <meta property="og:title" content="JS → React Roadmap | MERN's Guide">
+    <meta property="og:title" content="JS \u2192 React Roadmap | MERN's Guide">
     <meta property="og:description"
-        content="A comprehensive JavaScript curriculum designed to prepare you for React development.">
+        content="A comprehensive JavaScript curriculum designed to prepare you for React development. 10 phases, 100+ exercises, code runner, flashcards, Pomodoro timer, dark mode, and more.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://pre-mern.vercel.app">
-    <meta property="og:image" content="assets/documentation-images/og-image.png">
+    <meta property="og:image" content="https://pre-mern.vercel.app/assets/documentation-images/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="JS \u2192 React Roadmap preview">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:site_name" content="JS \u2192 React Roadmap">
+
+    <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="JS \u2192 React Roadmap | MERN's Guide">
+    <meta name="twitter:description"
+        content="A comprehensive JavaScript curriculum designed to prepare you for React development.">
+    <meta name="twitter:image" content="https://pre-mern.vercel.app/assets/documentation-images/og-image.png">
+    <meta name="twitter:image:alt" content="JS \u2192 React Roadmap preview">
+    <meta name="twitter:creator" content="@arundada9000">
 
-    <title>JS → React Roadmap | MERN's Guide</title>
+    <title>JS \u2192 React Roadmap | MERN's Guide</title>
 
-    <!-- Icon -->
+    <!-- Icons -->
     <link rel="icon" type="image/png" href="assets/logos/cfc-logo.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/icons/icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="192x192" href="assets/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" sizes="512x512" href="assets/icons/icon-512x512.png">
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "JS \u2192 React Roadmap",
+      "url": "https://pre-mern.vercel.app",
+      "description": "A structured JavaScript curriculum designed to prepare you for React development. 10 phases, 100+ exercises, built-in code runner, flashcards, and progress tracking.",
+      "applicationCategory": "EducationalApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript",
+      "author": {
+        "@type": "Person",
+        "name": "Arun Neupane",
+        "url": "https://arunneupane.netlify.app",
+        "sameAs": [
+          "https://github.com/arundada9000",
+          "https://www.facebook.com/arundada9000",
+          "https://www.instagram.com/arundada9000"
+        ]
+      },
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "screenshot": {
+        "@type": "ImageObject",
+        "url": "https://pre-mern.vercel.app/assets/documentation-images/landing-page.png",
+        "caption": "JS \u2192 React Roadmap landing page"
+      },
+      "featureList": [
+        "10-phase progressive curriculum",
+        "Built-in code runner with terminal",
+        "Flashcards study mode",
+        "Pomodoro timer with Lo-Fi beats",
+        "Dark and light theme",
+        "Progress tracking with local storage",
+        "Keyboard shortcuts",
+        "Search and filter exercises",
+        "Offline support via service worker"
+      ],
+      "teaches": [
+        "JavaScript fundamentals",
+        "DOM manipulation",
+        "Async programming",
+        "React preparation"
+      ],
+      "totalPhases": 10
+    }
+    </script>
 
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -305,6 +378,18 @@
     <script src="js/flashcards.js"></script>
     <script src="js/contextmenu.js"></script>
     <script src="js/console-easter-egg.js"></script>
+
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function () {
+          navigator.serviceWorker.register('/sw.js').then(function (reg) {
+            console.log('SW registered: ' + reg.scope);
+          }).catch(function (err) {
+            console.log('SW registration failed: ' + err);
+          });
+        });
+      }
+    </script>
 
 </body>
 
