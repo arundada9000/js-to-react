@@ -25,28 +25,24 @@
   "screenshots": [
     {
       "src": "assets/documentation-images/landing-page.png",
-      "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Landing page with curriculum overview"
     },
     {
       "src": "assets/documentation-images/curriculum.png",
-      "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Curriculum phases with exercises"
     },
     {
       "src": "assets/documentation-images/header.png",
-      "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Header with search and progress"
     },
     {
       "src": "assets/documentation-images/projects.png",
-      "sizes": "1280x800",
       "type": "image/png",
       "form_factor": "wide",
       "label": "Project showcase section"

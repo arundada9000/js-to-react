@@ -1928,9 +1928,7 @@
             </div>
             <div class="playground-body">
                 <div class="playground-actions">
-                    <button class="btn btn-sm btn-outline" onclick="loadPlaygroundExample('console.log(" Hello
-                        Subekshya!");\nconst name="Subekshya" ;\nconst city="Butwal" ;\nconsole.log(`${name} lives in
-                        ${city}.`);')">
+                    <button class="btn btn-sm btn-outline" onclick='loadPlaygroundExample("console.log(\"Hello Subekshya!\");\nconst name = \"Subekshya\";\nconst city = \"Butwal\";\nconsole.log(name + \" lives in \" + city);")'>
                         <i class="fas fa-lightbulb"></i> Variables
                     </button>
                     <button class="btn btn-sm btn-outline"
@@ -1938,12 +1936,10 @@
                         <i class="fas fa-rotate"></i> Loop
                     </button>
                     <button class="btn btn-sm btn-outline"
-                        onclick="loadPlaygroundExample('function loveMessage(name) {\n  return `Arun appreciates ${name}`;\n}\nconsole.log(loveMessage("
-                        Subekshya"));')">
+                        onclick='loadPlaygroundExample("function loveMessage(name) {\n  return \"Arun appreciates \" + name;\n}\nconsole.log(loveMessage(\"Subekshya\"));")'>
                         <i class="fas fa-heart"></i> Function
                     </button>
-                    <button class="btn btn-sm btn-outline" onclick="loadPlaygroundExample('const names = ["
-                        Arun", "Subekshya" ];\nconst loved=names.map(n=> `${n} <3`);\nconsole.log(loved);')">
+                    <button class="btn btn-sm btn-outline" onclick='loadPlaygroundExample("const names = [\"Arun\", \"Subekshya\"];\nconst loved = names.map(n => n + \" loves you!\");\nconsole.log(loved);")'>
                             <i class="fas fa-list"></i> map()
                     </button>
                 </div>

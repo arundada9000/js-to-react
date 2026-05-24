@@ -185,9 +185,9 @@ document.addEventListener("DOMContentLoaded", () => {
           playSound("mac-click");
           overlay.classList.remove("visible");
           document.body.classList.remove("has-maximized-terminal");
-          // Sync any changes back
           editor.value = fsEditor.value;
           output.innerHTML = fsOutput.innerHTML;
+          document.removeEventListener("keydown", handleEsc);
           setTimeout(() => overlay.remove(), 300);
         }
 

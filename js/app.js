@@ -197,14 +197,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (hasVisible) {
         phaseCard.classList.remove("search-hidden");
-        // Auto-expand phase if it has results
         const body = phaseCard.querySelector(".phase-body");
-        if (body && body.classList.contains("collapsed")) {
-          body.classList.remove("collapsed");
-          body.classList.add("expanded");
-          const icon = phaseCard.querySelector(".collapse-icon");
-          if (icon) icon.classList.remove("collapsed");
-        }
       } else {
         phaseCard.classList.add("search-hidden");
       }

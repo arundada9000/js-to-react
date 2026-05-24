@@ -100,7 +100,7 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("fc-current").textContent = currentIndex + 1;
     document.getElementById("fc-phase").textContent = card.phase;
     document.getElementById("fc-q").innerHTML = card.question.replace(
-      /\\n/g,
+      /\n/g,
       "<br>",
     );
     document.getElementById("fc-a").textContent = card.solution;

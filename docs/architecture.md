@@ -101,4 +101,4 @@ The app is structured for easy PWA conversion:
 - Minimal external dependencies
 - CSS and JS already modular
 
-*See [PWA Setup](pwa-setup.md) for the implementation plan.*
+*See [PWA Setup](pwa-setup.md) for implementation details.*

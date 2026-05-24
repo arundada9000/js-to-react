@@ -94,10 +94,6 @@ Mobile-first layout with sidebar drawer on small screens, adaptive typography an
 
 ---
 
-## Planned Features
+## What's Next
 
-- **PWA support** - offline access, installable app
-- **Service worker** - caching for offline use
-- **Push notifications** - study reminders
-
-*See [PWA Setup](pwa-setup.md) for the upcoming PWA implementation plan.*
+- **Push notifications** — study reminders

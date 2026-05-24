@@ -31,7 +31,7 @@
 - [x] Meta tags for PWA (`theme-color`, `apple-touch-icon`)
 - [x] JSON-LD structured data for SEO
 - [x] HTTPS deployment (Vercel)
-- [ ] Lighthouse audit verification
+- [x] Lighthouse audit verification
 
 ## Caching Strategy
 

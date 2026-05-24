@@ -14,7 +14,7 @@ Welcome to the complete documentation for the **JS → React Roadmap** project.
 | [Features](features.md) | All features explained |
 | [Architecture](architecture.md) | Code structure and internal design |
 | [Deployment](deployment.md) | Hosting and deployment options |
-| [PWA Setup](pwa-setup.md) | Progressive Web App guide *(planned)* |
+| [PWA Setup](pwa-setup.md) | Progressive Web App guide |
 | [Contributing](contributing.md) | How to contribute |
 
 ## About

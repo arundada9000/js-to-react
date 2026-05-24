@@ -1,4 +1,4 @@
-# JS → React Roadmap
+# JS \u2192 React Roadmap
 
 A structured JavaScript curriculum designed to prepare you for React development. Built with vanilla JS - no frameworks, no shortcuts.
 
@@ -22,34 +22,39 @@ A structured JavaScript curriculum designed to prepare you for React development
 - Grid / list view
 - Search & filter
 - Keyboard shortcuts
+- Custom context menu
+- Gamification with confetti celebrations
+- Download curriculum as Markdown
+- Project showcase with live code tabs
+- PWA installable with offline caching
+- Responsive design (mobile-first)
+- SEO optimized (JSON-LD, OG, Twitter Cards)
 
 ## Tech Stack
 
 | Layer | Technology |
 |-------|------------|
-| Markup | HTML5 (semantic) |
+| Markup | HTML5 (semantic, ARIA) |
 | Styling | CSS3 (custom properties, Grid, Flexbox) |
 | Logic | Vanilla JavaScript (ES6+, modular) |
-| Highlighting | Prism.js |
+| Syntax Highlighting | Prism.js |
 | Confetti | canvas-confetti |
 | Icons | Font Awesome 6 |
 | Fonts | Google Fonts (Inter, JetBrains Mono) |
-| Forms | Web3Forms |
-| Monetization | Google AdSense |
+| Contact Forms | Web3Forms |
+| Ads | Google AdSense |
 | Hosting | Vercel |
 
 ## Quick Start
 
 Open `index.html` in your browser - no build step, no dependencies.
 
-[Full Documentation →](docs/index.md)
+[Full Documentation ->](docs/index.md)
 
 ## PWA
 
 This app is a fully installable Progressive Web App with offline caching via service worker. Open in Chrome/Edge and click the install icon in the address bar.
 
-## Upcoming
-
 ## License
 
-MIT - built with ❤️ by Arun Neupane
+Built with love by [Arun Neupane](https://arunneupane.netlify.app)
