@@ -992,7 +992,8 @@ function initProjects() {
     const contents = container.querySelectorAll(".tab-content");
     const copyBtn = container.querySelector(".copy-btn");
     const pIdx = container.id.split("-")[1];
-    const project = projectIdeas[pIdx];
+    const project = projectIdeas && projectIdeas[pIdx];
+    if (!project) return;
 
     tabs.forEach((tab) => {
       tab.addEventListener("click", () => {

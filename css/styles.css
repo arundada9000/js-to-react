@@ -536,7 +536,7 @@ body {
 }
 
 .hero-stats {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 28px;
@@ -544,7 +544,6 @@ body {
   background: var(--c-surface);
   border-radius: var(--r-lg);
   border: 1px solid var(--c-border);
-  display: inline-flex;
   box-shadow: var(--shadow-sm);
 }
 
@@ -745,42 +744,7 @@ body {
   background: var(--c-success-bg);
 }
 
-/* Complete checkbox */
-.complete-check {
-  position: absolute;
-  top: 18px;
-  right: 18px;
-  width: 28px;
-  height: 28px;
-  border-radius: 50%;
-  border: 2px solid var(--c-border);
-  background: var(--c-surface);
-  color: transparent;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.7rem;
-  transition: all var(--t-fast);
-}
-
-.complete-check:hover {
-  border-color: var(--c-success);
-  color: var(--c-success);
-  transform: scale(1.15);
-}
-
-.complete-check:active {
-  transform: scale(0.9);
-}
-
-.exercise-card.completed .complete-check {
-  background: var(--c-success);
-  border-color: var(--c-success);
-  color: #fff;
-  animation: checkPop 0.35s var(--ease);
-}
-
+/* Complete button */
 .complete-btn {
   position: absolute;
   top: 18px;
@@ -1961,6 +1925,49 @@ kbd {
   -webkit-backdrop-filter: blur(20px);
   animation: ctxSlideIn 0.18s cubic-bezier(0.16, 1, 0.3, 1);
   overflow: hidden;
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Print Styles ---------- */
+@media print {
+  .sidebar,
+  .topbar,
+  .action-toolbar,
+  #back-to-top,
+  #particles-canvas,
+  .sidebar-overlay {
+    display: none !important;
+  }
+  .main {
+    margin-left: 0 !important;
+  }
+  .phase-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #ddd !important;
+  }
+  .exercise-card {
+    break-inside: avoid;
+  }
+  .solution-wrapper {
+    max-height: none !important;
+    opacity: 1 !important;
+    overflow: visible !important;
+  }
+  .solution-toggle-btn {
+    display: none !important;
+  }
 }
 
 [data-theme="dark"] .ctx-menu {

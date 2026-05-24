@@ -16,6 +16,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuToggle = document.getElementById("menu-toggle");
   const sidebar = document.querySelector(".sidebar");
 
+  if (!sidebarNav || !curriculumContainer || !progressText || !progressBar || !sidebar) return;
+
   // ─── Init ───
   initApp();
 
@@ -182,9 +184,9 @@ document.addEventListener("DOMContentLoaded", () => {
       let hasVisible = false;
 
       exercises.forEach((card) => {
-        const questionText = card
-          .querySelector(".exercise-question")
-          .textContent.toLowerCase();
+        const questionEl = card.querySelector(".exercise-question");
+        if (!questionEl) return;
+        const questionText = questionEl.textContent.toLowerCase();
         if (questionText.includes(query)) {
           card.classList.remove("search-hidden");
           hasVisible = true;

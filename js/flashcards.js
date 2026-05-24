@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const flashcardContainer = document.getElementById("flashcard-container");
   const projectsSection = document.getElementById("projects-section");
 
-  if (!btnStudy || !flashcardContainer) return;
+  if (!btnStudy || !flashcardContainer || !curriculumContainer) return;
 
   let isStudyMode = false;
   let flashcards = [];

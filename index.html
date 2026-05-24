@@ -4,9 +4,24 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>JS → React Roadmap | MERN's Guide</title>
+    <meta name="theme-color" content="#5856d6">
+    <meta name="author" content="Arun Neupane">
     <meta name="description"
         content="A comprehensive JavaScript curriculum designed to prepare you for React development.">
+
+    <!-- Open Graph / Social -->
+    <meta property="og:title" content="JS → React Roadmap | MERN's Guide">
+    <meta property="og:description"
+        content="A comprehensive JavaScript curriculum designed to prepare you for React development.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://js-react-roadmap.netlify.app">
+    <meta property="og:image" content="assets/logos/cfc-logo.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <title>JS → React Roadmap | MERN's Guide</title>
+
+    <!-- Icon -->
+    <link rel="icon" type="image/png" href="assets/logos/cfc-logo.png">
 
     <!-- Font Awesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -38,7 +53,7 @@
         <!-- ========= SIDEBAR ========= -->
         <aside class="sidebar" id="sidebar">
             <div class="sidebar-header">
-                <div class="logo">
+                <a href="/" class="logo" aria-label="Home">
                     <div class="cool-logo">
                         <div class="logo-layer js-layer"><i class="fa-brands fa-js"></i></div>
                         <div class="logo-layer react-layer"><i class="fa-brands fa-react"></i></div>
@@ -47,7 +62,7 @@
                         <strong>JS → React</strong>
                         <small>MERN's Roadmap</small>
                     </div>
-                </div>
+                </a>
             </div>
 
             <nav class="sidebar-nav" id="sidebar-nav">
@@ -266,6 +281,12 @@
         </div>
 
     </div>
+
+    <noscript>
+        <div style="padding: 20px; text-align: center; background: #ff6b6b; color: #fff; font-family: Inter, sans-serif;">
+            JavaScript is required for this app to work. Please enable JavaScript in your browser settings.
+        </div>
+    </noscript>
 
     <!-- Scripts -->
     <script src="js/curriculum.js"></script>
