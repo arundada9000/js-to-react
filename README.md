@@ -1,4 +1,4 @@
-# JS \u2192 React Roadmap
+# JS → React Roadmap
 
 A structured JavaScript curriculum designed to prepare you for React development. Built with vanilla JS - no frameworks, no shortcuts.
 
