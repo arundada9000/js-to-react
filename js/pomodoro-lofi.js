@@ -24,15 +24,15 @@ document.addEventListener("DOMContentLoaded", () => {
       const icon = pomoToggle.querySelector("i") || pomoToggle;
 
       if (pomoInterval) {
-        // Pause timer
         clearInterval(pomoInterval);
         pomoInterval = null;
         icon.classList.remove("fa-pause");
         icon.classList.add("fa-play");
+        pomoToggle.setAttribute("aria-label", "Start Pomodoro timer");
       } else {
-        // Play timer
         icon.classList.remove("fa-play");
         icon.classList.add("fa-pause");
+        pomoToggle.setAttribute("aria-label", "Pause Pomodoro timer");
 
         pomoInterval = setInterval(() => {
           timeRemaining--;
@@ -46,9 +46,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
             icon.classList.remove("fa-pause");
             icon.classList.add("fa-play");
+            pomoToggle.setAttribute("aria-label", "Start Pomodoro timer");
 
-            // Small timeout to allow DOM to update before blocking with alert
-            setTimeout(() => {
+            setTimeout(function () {
               alert("Pomodoro complete! Take a 5 minute break.");
             }, 10);
           }

@@ -2038,6 +2038,52 @@ kbd {
   margin: 4px 8px;
 }
 
+/* ---------- Accessibility ---------- */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+  outline: 2px solid var(--c-primary);
+  outline-offset: 2px;
+}
+
+/* Skip to content link (hidden until focused) */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 8px;
+  z-index: 10000;
+  padding: 10px 20px;
+  background: var(--c-primary);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-family: Inter, sans-serif;
+  border-radius: 0 0 8px 8px;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
 /* ---------- Fullscreen Terminal Overrides ---------- */
 body.has-maximized-terminal {
   overflow: hidden; /* Prevent background scrolling */

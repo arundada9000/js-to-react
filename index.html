@@ -45,6 +45,8 @@
 
 <body>
 
+    <a href="#main" class="skip-link">Skip to content</a>
+
     <!-- Subtle floating particles background -->
     <canvas id="particles-canvas"></canvas>
 
@@ -84,7 +86,8 @@
                     </button>
 
                     <div class="topbar-search">
-                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <label for="search-input" class="sr-only">Search exercises</label>
+                        <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
                         <input type="text" id="search-input" placeholder="Search exercises..." autocomplete="off">
                         <button class="search-clear" id="search-clear" aria-label="Clear search">
                             <i class="fa-solid fa-xmark"></i>
@@ -95,15 +98,15 @@
                         <!-- Pomodoro & LoFi Widgets -->
                         <div id="pomodoro-widget" class="widget-hidden">
                             <span id="pomo-time">25:00</span>
-                            <button id="pomo-toggle"><i class="fa-solid fa-play"></i></button>
+                            <button id="pomo-toggle" aria-label="Start Pomodoro timer"><i class="fa-solid fa-play"></i></button>
                         </div>
                         <div id="lofi-widget" class="widget-hidden">
-                            <button id="lofi-toggle" title="Play Lo-Fi Beats"><i
+                            <button id="lofi-toggle" aria-label="Play Lo-Fi Beats"><i
                                     class="fa-solid fa-headphones"></i></button>
                             <div id="lofi-player"></div>
                         </div>
                         <!-- Dark Mode Toggle -->
-                        <button class="topbar-btn" id="theme-toggle" title="Toggle Dark Mode">
+                        <button class="topbar-btn" id="theme-toggle" aria-label="Toggle Dark Mode">
                             <i class="fa-solid fa-moon"></i>
                         </button>
                         <div class="progress-pill" id="progress-pill">
@@ -112,7 +115,7 @@
                                 <div class="progress-fill" id="progress-bar"></div>
                             </div>
                         </div>
-                        <button class="topbar-btn" id="reset-btn" title="Reset all progress">
+                        <button class="topbar-btn" id="reset-btn" aria-label="Reset all progress">
                             <i class="fa-solid fa-rotate-left"></i>
                         </button>
                     </div>
@@ -230,7 +233,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h2><i class="fa-solid fa-keyboard"></i> Keyboard Shortcuts</h2>
-                    <button class="modal-close" id="close-shortcuts"><i class="fa-solid fa-xmark"></i></button>
+                    <button class="modal-close" id="close-shortcuts" aria-label="Close shortcuts modal"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="shortcut-item">
@@ -270,7 +273,7 @@
             <div class="modal-content modal-lg">
                 <div class="modal-header">
                     <h2><i class="fa-solid fa-tags"></i> All Topics Covered</h2>
-                    <button class="modal-close" id="close-topics"><i class="fa-solid fa-xmark"></i></button>
+                    <button class="modal-close" id="close-topics" aria-label="Close topics modal"><i class="fa-solid fa-xmark"></i></button>
                 </div>
                 <div class="modal-body">
                     <div class="topics-cloud" id="topics-cloud">
