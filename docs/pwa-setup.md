@@ -4,6 +4,9 @@
 
 ![CFC Logo](../assets/logos/cfc-logo.png)
 
+**Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
+**Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
+
 > ⚠️ **Status:** Planned — implementation pending icon assets.  
 > This guide outlines the steps to convert this project into a fully installable Progressive Web App.
 
@@ -75,7 +78,7 @@ Create `manifest.json` in the root:
 Create `sw.js` in the root:
 
 ```javascript
-const CACHE_NAME = 'js-react-roadmap-v1';
+const CACHE_NAME = 'js-to-react-v1';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -158,7 +161,7 @@ Run Lighthouse audit in Chrome DevTools:
 
 ## 8. Deployment
 
-Ensure HTTPS is enabled on your hosting provider (Netlify, Vercel, GitHub Pages all support HTTPS by default).
+Ensure HTTPS is enabled on your hosting provider. Vercel (pre-mern.vercel.app) provides HTTPS by default.
 
 ---
 

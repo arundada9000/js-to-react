@@ -4,13 +4,16 @@
 
 ![CFC Logo](../assets/logos/cfc-logo.png)
 
+**Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
+**Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
+
 ---
 
 Thanks for your interest in contributing to the JS → React Roadmap!
 
 ## How to Contribute
 
-1. Fork the repository
+1. Fork the repository: `https://github.com/arundada9000/js-to-react`
 2. Create a feature branch: `git checkout -b feat/your-feature`
 3. Make your changes
 4. Test thoroughly
@@ -34,7 +37,7 @@ Edit `js/curriculum.js` — each exercise needs:
 
 ## Reporting Issues
 
-Open an issue on [GitHub](https://github.com/arundada9000/js-react-roadmap/issues) with:
+Open an issue on [GitHub](https://github.com/arundada9000/js-to-react/issues) with:
 - Description of the issue
 - Steps to reproduce
 - Browser and OS

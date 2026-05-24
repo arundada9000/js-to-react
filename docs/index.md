@@ -25,6 +25,9 @@ This project is a **comprehensive JavaScript curriculum** built as a single-page
 **GitHub:** [@arundada9000](https://github.com/arundada9000)  
 **Portfolio:** [arunneupane.netlify.app](https://arunneupane.netlify.app)
 
+**Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
+**Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
+
 ## Project Status
 
 - ✅ Core curriculum with 10 phases
@@ -35,15 +38,30 @@ This project is a **comprehensive JavaScript curriculum** built as a single-page
 - ✅ Progress tracking (localStorage)
 - 🚧 PWA support *(coming soon)*
 
+## Screenshots
+
+![Landing Page](../assets/documentation-images/landing-page.png)
+![Header & Search](../assets/documentation-images/header.png)
+![Curriculum](../assets/documentation-images/curriculum.png)
+![How to Use Guide](../assets/documentation-images/how-to-use-guide.png)
+![Projects](../assets/documentation-images/projects.png)
+![Keyboard Shortcuts](../assets/documentation-images/shortcuts.png)
+![Custom Context Menu](../assets/documentation-images/custom-context-menu.png)
+
 ## Tech Stack
 
-- **HTML5** — Semantic markup
-- **CSS3** — Custom properties, Grid, Flexbox, animations
-- **Vanilla JavaScript** — ES6+, modular architecture
-- **Prism.js** — Syntax highlighting
-- **canvas-confetti** — Completion celebrations
-- **Font Awesome 6** — Icons
-- **Google Fonts** — Inter & JetBrains Mono
+| Layer | Technology |
+|-------|------------|
+| Markup | HTML5 (semantic elements, OG tags, ARIA) |
+| Styling | CSS3 (custom properties, Grid, Flexbox, animations) |
+| Logic | Vanilla JavaScript (ES6+, modular architecture) |
+| Syntax Highlighting | Prism.js |
+| Celebrations | canvas-confetti |
+| Icons | Font Awesome 6 |
+| Typography | Google Fonts — Inter (UI) & JetBrains Mono (code) |
+| Contact Forms | Web3Forms |
+| Ads | Google AdSense |
+| Hosting | Vercel |
 
 ---
 

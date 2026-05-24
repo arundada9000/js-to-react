@@ -4,23 +4,41 @@
 
 ![CFC Logo](../assets/logos/cfc-logo.png)
 
+**Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
+**Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
+
 ---
 
 This is a static site — no build step required. Deploy anywhere that serves static files.
 
-## Option 1: Netlify (Recommended)
+## Option 1: Vercel (Current)
+
+This site is currently deployed on **Vercel** at [pre-mern.vercel.app](https://pre-mern.vercel.app).
+
+1. Push to GitHub:
+   ```bash
+   git remote add origin https://github.com/arundada9000/js-to-react.git
+   git push -u origin master
+   ```
+2. Go to [vercel.com](https://vercel.com)
+3. Click **Add New → Project**
+4. Import `arundada9000/js-to-react`
+5. Framework preset: **Other**
+6. Deploy
+
+## Option 2: Netlify
 
 1. Push to GitHub
 2. Go to [netlify.com](https://netlify.com)
 3. Click **Add new site → Import existing project**
-4. Connect your GitHub repo
+4. Connect `arundada9000/js-to-react`
 5. Deploy settings:
    - **Branch:** `master`
    - **Publish directory:** `/` (root)
    - **Build command:** leave empty
 6. Click **Deploy site**
 
-## Option 2: GitHub Pages
+## Option 3: GitHub Pages
 
 1. Push to GitHub
 2. Go to repo **Settings → Pages**
@@ -28,19 +46,11 @@ This is a static site — no build step required. Deploy anywhere that serves st
 4. Branch: `master`, folder: `/ (root)`
 5. Save
 
-## Option 3: Vercel
-
-1. Push to GitHub
-2. Go to [vercel.com](https://vercel.com)
-3. Import repo
-4. Framework preset: **Other**
-5. Deploy
-
 ## Custom Domain
 
-Point your domain's DNS to your hosting provider. Both Netlify and Vercel provide free SSL certificates.
+Point your domain's DNS to your hosting provider. Netlify and Vercel both provide free SSL certificates.
 
-## Post-Deployment
+## Post-Deployment Checklist
 
 - [ ] Enable HTTPS
 - [ ] Test all features

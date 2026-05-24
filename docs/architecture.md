@@ -4,6 +4,9 @@
 
 ![CFC Logo](../assets/logos/cfc-logo.png)
 
+**Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
+**Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
+
 ---
 
 ## Overview
@@ -59,14 +62,14 @@ Productivity widgets:
 ### `js/coderunner.js`
 In-browser code execution:
 - Textarea editor with terminal UI
-- `eval()` / `Function()` execution sandbox
+- `Function()` execution sandbox
 - Fullscreen mode
 - Console output capture
 
 ### `js/gamification.js`
 Progress gamification:
 - Completion tracking
-- Visual celebrations
+- Visual celebrations (canvas-confetti)
 
 ### `js/flashcards.js`
 Study mode:
@@ -81,7 +84,7 @@ Custom right-click context menu with actions.
 
 CSS uses **custom properties** (design tokens) defined in `:root`. All colors, spacing, shadows, and transitions are centralized.
 
-Media queries at 900px and 480px for responsive breakpoints.
+Media queries at 900px and 480px for responsive breakpoints. Includes `prefers-reduced-motion` and `@media print` support.
 
 ## State Management
 

@@ -4,15 +4,18 @@
 
 ![CFC Logo](../assets/logos/cfc-logo.png)
 
+**Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
+**Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
+
 ---
 
 ## 1. 10-Phase Curriculum
 
 Progressive learning path from JavaScript basics to advanced concepts. Each phase includes topics, exercises, hints, expected outputs, and code solutions.
 
-## 2. Built-in Code Runner
+![Curriculum](../assets/documentation-images/curriculum.png)
 
-![Code Runner](../assets/logos/cfc-logo.png)
+## 2. Built-in Code Runner
 
 Write and execute JavaScript directly in the browser. Features:
 - Terminal-style interface with macOS-style window controls
@@ -32,7 +35,7 @@ Stay focused with:
 
 ## 5. Dark / Light Theme
 
-Toggle between themes with a single click. Respects system preference via `prefers-color-scheme` (future enhancement). Persistent across sessions.
+Toggle between themes with a single click. Persistent across sessions.
 
 ## 6. Progress Tracking
 
@@ -45,6 +48,8 @@ Toggle between themes with a single click. Respects system preference via `prefe
 
 Real-time search across all exercises. Auto-expands phases with matching results. Clear button to reset.
 
+![Header & Search](../assets/documentation-images/header.png)
+
 ## 8. Grid / List View
 
 Toggle between single-column list and multi-column grid layouts.
@@ -52,6 +57,8 @@ Toggle between single-column list and multi-column grid layouts.
 ## 9. Keyboard Shortcuts
 
 Full keyboard navigation support — see [Getting Started](getting-started.md#keyboard-shortcuts).
+
+![Keyboard Shortcuts](../assets/documentation-images/shortcuts.png)
 
 ## 10. Download Curriculum
 
@@ -67,7 +74,21 @@ Export the entire curriculum as a Markdown file with one click.
 
 Right-click anywhere for quick actions (theme toggle, collapse/expand, back to top).
 
-## 13. Responsive Design
+![Custom Context Menu](../assets/documentation-images/custom-context-menu.png)
+
+## 13. How to Use Guide
+
+Built-in instructions on how to navigate the curriculum effectively.
+
+![How to Use Guide](../assets/documentation-images/how-to-use-guide.png)
+
+## 14. Project Showcase
+
+Real-world project examples with source code, difficulty badges, and tabbed code viewer.
+
+![Projects](../assets/documentation-images/projects.png)
+
+## 15. Responsive Design
 
 Mobile-first layout with sidebar drawer on small screens, adaptive typography and spacing.
 
