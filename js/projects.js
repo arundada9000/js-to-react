@@ -2,7 +2,8 @@ const projectIdeas = [
   {
     title: "1. Random Quote Generator",
     difficulty: "easy",
-    description: "Displays a random inspirational quote on click with a smooth background color transition. Teaches DOM manipulation, Arrays, and Math.random().",
+    description:
+      "Displays a random inspirational quote on click with a smooth background color transition. Teaches DOM manipulation, Arrays, and Math.random().",
     html: `<!-- HTML structure (index.html) -->
 <div class="quote-card">
   <div class="quote-box">
@@ -110,12 +111,13 @@ quoteBtn.addEventListener("click", () => {
   // Get random soft background color
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
   document.body.style.background = randomColor;
-});`
+});`,
   },
   {
     title: "2. Color Palette Generator",
     difficulty: "easy",
-    description: "Generates a cohesive 5-color hex palette dynamically on click. Click any color box to copy its hex code to clipboard. Teaches strings, loops, and styles.",
+    description:
+      "Generates a cohesive 5-color hex palette dynamically on click. Click any color box to copy its hex code to clipboard. Teaches strings, loops, and styles.",
     html: `<!-- HTML structure (index.html) -->
 <div class="palette-card">
   <h2>Palette Generator</h2>
@@ -259,12 +261,13 @@ function generatePalette() {
 genBtn.addEventListener("click", generatePalette);
 
 // Run initial generation on load
-generatePalette();`
+generatePalette();`,
   },
   {
     title: "3. Simple Expense Tracker",
     difficulty: "medium",
-    description: "Tracks items and costs, showing an updating list and sum total. Persists data locally in localStorage. Teaches State (Arrays/Objects), rendering patterns, and storage.",
+    description:
+      "Tracks items and costs, showing an updating list and sum total. Persists data locally in localStorage. Teaches State (Arrays/Objects), rendering patterns, and storage.",
     html: `<!-- HTML structure (index.html) -->
 <div class="expense-card">
   <h2>Expense Tracker</h2>
@@ -435,12 +438,13 @@ addBtn.addEventListener("click", () => {
 });
 
 // Render initial items
-render();`
+render();`,
   },
   {
     title: "4. Live Markdown Previewer",
     difficulty: "medium",
-    description: "A split-screen text editor that renders markdown formatting instantly. Teaches layout engines, keyboard input listening, and string replacements.",
+    description:
+      "A split-screen text editor that renders markdown formatting instantly. Teaches layout engines, keyboard input listening, and string replacements.",
     html: `<!-- HTML structure (index.html) -->
 <div class="editor-container">
   <h2>Live Markdown Previewer</h2>
@@ -560,12 +564,13 @@ input.addEventListener("input", (e) => {
 });
 
 // Load default text on start
-preview.innerHTML = parseMarkdown(input.value);`
+preview.innerHTML = parseMarkdown(input.value);`,
   },
   {
     title: "5. Weather Dashboard (Fetch API)",
     difficulty: "hard",
-    description: "Fetches current temperature and weather conditions of any city in real-time. Teaches API consumption, Async/Await operations, and error boundary handling.",
+    description:
+      "Fetches current temperature and weather conditions of any city in real-time. Teaches API consumption, Async/Await operations, and error boundary handling.",
     html: `<!-- HTML structure (index.html) -->
 <div class="weather-card">
   <h2>Weather Search</h2>
@@ -702,12 +707,13 @@ searchBtn.addEventListener("click", async () => {
   } catch (error) {
     infoBox.innerHTML = \`<p class="error">\${error.message}</p>\`;
   }
-});`
+});`,
   },
   {
     title: "6. Typo Ninja (Speed Typing Game)",
     difficulty: "hard",
-    description: "Type words falling down the screen to slice them before they hit the boundary. Teaches advanced state, animation frames (requestAnimationFrame), and key listeners.",
+    description:
+      "Type words falling down the screen to slice them before they hit the boundary. Teaches advanced state, animation frames (requestAnimationFrame), and key listeners.",
     html: `<!-- HTML structure (index.html) -->
 <div class="game-container">
   <div class="hud">
@@ -921,21 +927,21 @@ input.addEventListener("input", (e) => {
     scoreEl.textContent = score;
     e.target.value = "";
   }
-});`
-  }
+});`,
+  },
 ];
 
 function initProjects() {
-  const section = document.getElementById('projects-section');
+  const section = document.getElementById("projects-section");
   if (!section) {
-    console.error('[Projects] #projects-section not found in the DOM!');
+    console.error("[Projects] #projects-section not found in the DOM!");
     return;
   }
-  
-  if (section.hasAttribute('data-initialized')) return;
-  section.setAttribute('data-initialized', 'true');
-  console.log('[Projects] Initializing projects section...');
-  
+
+  if (section.hasAttribute("data-initialized")) return;
+  section.setAttribute("data-initialized", "true");
+  console.log("[Projects] Initializing projects section...");
+
   let html = `<div class="info-header" style="margin-bottom: 30px;">
     <i class="fa-solid fa-hammer" style="font-size: 2rem; color: #ff6b81;"></i>
     <h2 style="font-size: 1.8rem; font-weight: 800;">Build These Next (Project Ideas)</h2>
@@ -944,7 +950,7 @@ function initProjects() {
     The best way to master JavaScript before React is to build tools from scratch. Here are unique projects arranged in increasing difficulty, complete with explanations and full, copy-pasteable HTML, CSS, and JS code!
   </p>
   <div class="projects-grid">`;
-  
+
   projectIdeas.forEach((p, idx) => {
     html += `
       <div class="project-card">
@@ -976,38 +982,43 @@ function initProjects() {
       </div>
     `;
   });
-  
+
   html += `</div>`;
   section.innerHTML = html;
 
   // Add click handlers for tabs
-  document.querySelectorAll('.tab-container').forEach(container => {
-    const tabs = container.querySelectorAll('.tab-btn');
-    const contents = container.querySelectorAll('.tab-content');
-    const copyBtn = container.querySelector('.copy-btn');
-    const pIdx = container.id.split('-')[1];
+  document.querySelectorAll(".tab-container").forEach((container) => {
+    const tabs = container.querySelectorAll(".tab-btn");
+    const contents = container.querySelectorAll(".tab-content");
+    const copyBtn = container.querySelector(".copy-btn");
+    const pIdx = container.id.split("-")[1];
     const project = projectIdeas[pIdx];
 
-    tabs.forEach(tab => {
-      tab.addEventListener('click', () => {
-        const tabName = tab.getAttribute('data-tab');
-        
-        tabs.forEach(t => t.classList.remove('active'));
-        contents.forEach(c => c.classList.remove('active'));
-        
-        tab.classList.add('active');
-        container.querySelector(`[data-content="${tabName}"]`).classList.add('active');
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const tabName = tab.getAttribute("data-tab");
+
+        tabs.forEach((t) => t.classList.remove("active"));
+        contents.forEach((c) => c.classList.remove("active"));
+
+        tab.classList.add("active");
+        container
+          .querySelector(`[data-content="${tabName}"]`)
+          .classList.add("active");
       });
     });
 
     // Copy to clipboard
-    copyBtn.addEventListener('click', () => {
-      const activeTab = container.querySelector('.tab-btn.active').getAttribute('data-tab');
+    copyBtn.addEventListener("click", () => {
+      const activeTab = container
+        .querySelector(".tab-btn.active")
+        .getAttribute("data-tab");
       const codeText = project[activeTab];
-      
+
       navigator.clipboard.writeText(codeText).then(() => {
         const originalContent = copyBtn.innerHTML;
-        copyBtn.innerHTML = '<i class="fa-solid fa-check" style="color: #30d158;"></i> Copied!';
+        copyBtn.innerHTML =
+          '<i class="fa-solid fa-check" style="color: #30d158;"></i> Copied!';
         setTimeout(() => {
           copyBtn.innerHTML = originalContent;
         }, 1500);
@@ -1019,14 +1030,14 @@ function initProjects() {
   if (window.Prism) {
     Prism.highlightAllUnder(section);
   }
-  
-  console.log('[Projects] Initialization complete!');
+
+  console.log("[Projects] Initialization complete!");
 }
 
 // Ensure the function runs
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initProjects);
-  window.addEventListener('load', initProjects); // fallback
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", initProjects);
+  window.addEventListener("load", initProjects); // fallback
 } else {
   initProjects();
 }

@@ -1,19 +1,20 @@
-document.addEventListener('DOMContentLoaded', () => {
-
+document.addEventListener("DOMContentLoaded", () => {
   // ─── State ───
   let totalExercises = 0;
   let completedExercises = 0;
-  const completedSet = new Set(JSON.parse(localStorage.getItem('jsGuideCompleted') || '[]'));
+  const completedSet = new Set(
+    JSON.parse(localStorage.getItem("jsGuideCompleted") || "[]"),
+  );
   const collapsedPhases = new Set();
 
   // ─── DOM Elements ───
-  const sidebarNav = document.getElementById('sidebar-nav');
-  const curriculumContainer = document.getElementById('curriculum-container');
-  const progressText = document.getElementById('progress-text');
-  const progressBar = document.getElementById('progress-bar');
+  const sidebarNav = document.getElementById("sidebar-nav");
+  const curriculumContainer = document.getElementById("curriculum-container");
+  const progressText = document.getElementById("progress-text");
+  const progressBar = document.getElementById("progress-bar");
   const particlesContainer = document.body;
-  const menuToggle = document.getElementById('menu-toggle');
-  const sidebar = document.querySelector('.sidebar');
+  const menuToggle = document.getElementById("menu-toggle");
+  const sidebar = document.querySelector(".sidebar");
 
   // ─── Init ───
   initApp();
@@ -34,17 +35,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Search Bar ───
   function initSearch() {
-    const searchInput = document.getElementById('search-input');
-    const searchClear = document.getElementById('search-clear');
-    
+    const searchInput = document.getElementById("search-input");
+    const searchClear = document.getElementById("search-clear");
+
     if (!searchInput) return;
 
     let debounceTimer;
-    searchInput.addEventListener('input', () => {
+    searchInput.addEventListener("input", () => {
       const val = searchInput.value.trim().toLowerCase();
       if (searchClear) {
-        if (val) searchClear.classList.add('visible');
-        else searchClear.classList.remove('visible');
+        if (val) searchClear.classList.add("visible");
+        else searchClear.classList.remove("visible");
       }
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => {
@@ -53,16 +54,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (searchClear) {
-      searchClear.addEventListener('click', () => {
-        searchInput.value = '';
-        searchClear.classList.remove('visible');
-        filterExercises('');
+      searchClear.addEventListener("click", () => {
+        searchInput.value = "";
+        searchClear.classList.remove("visible");
+        filterExercises("");
         searchInput.focus();
       });
     }
 
     // Inject dynamic styles not covered by styles.css
-    const style = document.createElement('style');
+    const style = document.createElement("style");
     style.textContent = `
       .exercise-card.search-hidden,
       .phase-card.search-hidden {
@@ -152,83 +153,89 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Reset Button ───
   function initResetBtn() {
-    const resetBtn = document.getElementById('reset-btn');
+    const resetBtn = document.getElementById("reset-btn");
     if (!resetBtn) return;
-    resetBtn.addEventListener('click', () => {
-      if (confirm('Are you sure you want to reset your progress?')) {
+    resetBtn.addEventListener("click", () => {
+      if (confirm("Are you sure you want to reset your progress?")) {
         completedSet.clear();
         saveProgress();
         updateProgress();
-        document.querySelectorAll('.exercise-card.completed').forEach(card => card.classList.remove('completed'));
+        document
+          .querySelectorAll(".exercise-card.completed")
+          .forEach((card) => card.classList.remove("completed"));
       }
     });
   }
 
   function filterExercises(query) {
-    const exerciseCards = document.querySelectorAll('.exercise-card');
-    const phaseCards = document.querySelectorAll('.phase-card');
+    const exerciseCards = document.querySelectorAll(".exercise-card");
+    const phaseCards = document.querySelectorAll(".phase-card");
 
     if (!query) {
-      exerciseCards.forEach(card => card.classList.remove('search-hidden'));
-      phaseCards.forEach(card => card.classList.remove('search-hidden'));
+      exerciseCards.forEach((card) => card.classList.remove("search-hidden"));
+      phaseCards.forEach((card) => card.classList.remove("search-hidden"));
       return;
     }
 
-    phaseCards.forEach(phaseCard => {
-      const exercises = phaseCard.querySelectorAll('.exercise-card');
+    phaseCards.forEach((phaseCard) => {
+      const exercises = phaseCard.querySelectorAll(".exercise-card");
       let hasVisible = false;
 
-      exercises.forEach(card => {
-        const questionText = card.querySelector('.exercise-question').textContent.toLowerCase();
+      exercises.forEach((card) => {
+        const questionText = card
+          .querySelector(".exercise-question")
+          .textContent.toLowerCase();
         if (questionText.includes(query)) {
-          card.classList.remove('search-hidden');
+          card.classList.remove("search-hidden");
           hasVisible = true;
         } else {
-          card.classList.add('search-hidden');
+          card.classList.add("search-hidden");
         }
       });
 
       if (hasVisible) {
-        phaseCard.classList.remove('search-hidden');
+        phaseCard.classList.remove("search-hidden");
         // Auto-expand phase if it has results
-        const body = phaseCard.querySelector('.phase-body');
-        if (body && body.classList.contains('collapsed')) {
-          body.classList.remove('collapsed');
-          body.classList.add('expanded');
-          const icon = phaseCard.querySelector('.collapse-icon');
-          if (icon) icon.classList.remove('collapsed');
+        const body = phaseCard.querySelector(".phase-body");
+        if (body && body.classList.contains("collapsed")) {
+          body.classList.remove("collapsed");
+          body.classList.add("expanded");
+          const icon = phaseCard.querySelector(".collapse-icon");
+          if (icon) icon.classList.remove("collapsed");
         }
       } else {
-        phaseCard.classList.add('search-hidden');
+        phaseCard.classList.add("search-hidden");
       }
     });
   }
 
   // ─── Render Sidebar ───
   function renderSidebar() {
-    sidebarNav.innerHTML = '';
+    sidebarNav.innerHTML = "";
     curriculum.forEach((phase) => {
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = `#phase-${phase.phase}`;
-      a.className = 'nav-link';
+      a.className = "nav-link";
       a.dataset.phase = phase.phase;
       a.innerHTML = `
         <i class="${phase.icon} nav-icon"></i>
         <span class="nav-label">Phase ${phase.phase}</span>
       `;
 
-      a.addEventListener('click', (e) => {
+      a.addEventListener("click", (e) => {
         e.preventDefault();
         const target = document.getElementById(`phase-${phase.phase}`);
         if (target) {
-          target.scrollIntoView({ behavior: 'smooth' });
+          target.scrollIntoView({ behavior: "smooth" });
         }
-        document.querySelectorAll('.nav-link').forEach(nav => nav.classList.remove('active'));
-        a.classList.add('active');
+        document
+          .querySelectorAll(".nav-link")
+          .forEach((nav) => nav.classList.remove("active"));
+        a.classList.add("active");
 
         // Close mobile sidebar on click
         if (window.innerWidth <= 900) {
-          sidebar.classList.remove('open');
+          sidebar.classList.remove("open");
         }
       });
 
@@ -236,30 +243,32 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     if (sidebarNav.firstChild) {
-      sidebarNav.firstChild.classList.add('active');
+      sidebarNav.firstChild.classList.add("active");
     }
   }
 
   // ─── Render Curriculum ───
   function renderCurriculum() {
-    curriculumContainer.innerHTML = '';
+    curriculumContainer.innerHTML = "";
     totalExercises = 0;
 
     curriculum.forEach((phase) => {
-      const phaseEl = document.createElement('div');
-      phaseEl.className = 'phase-card';
+      const phaseEl = document.createElement("div");
+      phaseEl.className = "phase-card";
       phaseEl.id = `phase-${phase.phase}`;
 
       // Phase Header
-      const headerEl = document.createElement('div');
-      headerEl.className = 'phase-header';
+      const headerEl = document.createElement("div");
+      headerEl.className = "phase-header";
 
       const isCollapsed = phase.phase !== 1;
       if (isCollapsed) collapsedPhases.add(phase.phase);
-      if (!isCollapsed) phaseEl.classList.add('open');
+      if (!isCollapsed) phaseEl.classList.add("open");
 
       // Build topics HTML
-      const topicsHtml = (phase.topics || []).map(t => `<span class="topic-tag">${t}</span>`).join('');
+      const topicsHtml = (phase.topics || [])
+        .map((t) => `<span class="topic-tag">${t}</span>`)
+        .join("");
 
       headerEl.innerHTML = `
         <div class="phase-icon" style="background-color: ${phase.color}1a; color: ${phase.color}">
@@ -276,8 +285,8 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseEl.appendChild(headerEl);
 
       // Phase Body
-      const bodyEl = document.createElement('div');
-      bodyEl.className = 'phase-body';
+      const bodyEl = document.createElement("div");
+      bodyEl.className = "phase-body";
 
       // Exercises
       phase.exercises.forEach((exercise, idx) => {
@@ -286,11 +295,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const isCompleted = completedSet.has(exId);
         if (isCompleted) completedExercises++;
 
-        const exCard = document.createElement('div');
-        exCard.className = `exercise-card${isCompleted ? ' completed' : ''}`;
+        const exCard = document.createElement("div");
+        exCard.className = `exercise-card${isCompleted ? " completed" : ""}`;
         exCard.id = exId;
 
-        const formatQuestion = exercise.question.replace(/\n/g, '<br>');
+        const formatQuestion = exercise.question.replace(/\n/g, "<br>");
 
         exCard.innerHTML = `
           <button class="complete-btn" aria-label="Mark Complete">
@@ -298,16 +307,20 @@ document.addEventListener('DOMContentLoaded', () => {
           </button>
           <div class="exercise-question">${formatQuestion}</div>
 
-          ${exercise.hint ? `
+          ${
+            exercise.hint
+              ? `
             <button class="hint-toggle">
               <i class="fa-solid fa-lightbulb"></i> Show Hint
             </button>
             <div class="hint-block">${exercise.hint}</div>
-          ` : ''}
+          `
+              : ""
+          }
 
           <div class="expected-result">
             <span class="expected-result-label">Expected Output in Console:</span>
-            ${exercise.expectedResult.replace(/\n/g, '<br>')}
+            ${exercise.expectedResult.replace(/\n/g, "<br>")}
           </div>
 
           <button class="solution-toggle-btn">
@@ -325,12 +338,12 @@ document.addEventListener('DOMContentLoaded', () => {
         `;
 
         // Hint Toggle
-        const hintToggle = exCard.querySelector('.hint-toggle');
-        const hintBlock = exCard.querySelector('.hint-block');
+        const hintToggle = exCard.querySelector(".hint-toggle");
+        const hintBlock = exCard.querySelector(".hint-block");
         if (hintToggle && hintBlock) {
-          hintToggle.addEventListener('click', () => {
-            const showing = hintBlock.classList.contains('show');
-            hintBlock.classList.toggle('show');
+          hintToggle.addEventListener("click", () => {
+            const showing = hintBlock.classList.contains("show");
+            hintBlock.classList.toggle("show");
             hintToggle.innerHTML = showing
               ? '<i class="fa-solid fa-lightbulb"></i> Show Hint'
               : '<i class="fa-solid fa-lightbulb"></i> Hide Hint';
@@ -338,45 +351,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Solution Toggle
-        const toggleBtn = exCard.querySelector('.solution-toggle-btn');
-        const solutionDiv = exCard.querySelector('.solution-wrapper');
-        toggleBtn.addEventListener('click', () => {
-          const isShowing = solutionDiv.classList.contains('show');
+        const toggleBtn = exCard.querySelector(".solution-toggle-btn");
+        const solutionDiv = exCard.querySelector(".solution-wrapper");
+        toggleBtn.addEventListener("click", () => {
+          const isShowing = solutionDiv.classList.contains("show");
           if (isShowing) {
-            solutionDiv.classList.remove('show');
-            toggleBtn.classList.remove('active');
-            toggleBtn.innerHTML = '<i class="fa-solid fa-code"></i> Show Code Solution';
+            solutionDiv.classList.remove("show");
+            toggleBtn.classList.remove("active");
+            toggleBtn.innerHTML =
+              '<i class="fa-solid fa-code"></i> Show Code Solution';
           } else {
-            solutionDiv.classList.add('show');
-            toggleBtn.classList.add('active');
-            toggleBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Hide Code Solution';
+            solutionDiv.classList.add("show");
+            toggleBtn.classList.add("active");
+            toggleBtn.innerHTML =
+              '<i class="fa-solid fa-eye-slash"></i> Hide Code Solution';
             if (window.Prism) Prism.highlightAll();
           }
         });
 
         // Copy Button
-        const copyBtn = exCard.querySelector('.copy-code-btn');
-        copyBtn.addEventListener('click', () => {
+        const copyBtn = exCard.querySelector(".copy-code-btn");
+        copyBtn.addEventListener("click", () => {
           navigator.clipboard.writeText(exercise.solutionCode).then(() => {
-            copyBtn.classList.add('copied');
+            copyBtn.classList.add("copied");
             copyBtn.innerHTML = '<i class="fa-solid fa-check"></i> Copied!';
             setTimeout(() => {
-              copyBtn.classList.remove('copied');
+              copyBtn.classList.remove("copied");
               copyBtn.innerHTML = '<i class="fa-regular fa-copy"></i> Copy';
             }, 2000);
           });
         });
 
         // Complete Button
-        const completeBtn = exCard.querySelector('.complete-btn');
-        completeBtn.addEventListener('click', () => {
+        const completeBtn = exCard.querySelector(".complete-btn");
+        completeBtn.addEventListener("click", () => {
           if (completedSet.has(exId)) {
             completedSet.delete(exId);
-            exCard.classList.remove('completed');
+            exCard.classList.remove("completed");
             completedExercises--;
           } else {
             completedSet.add(exId);
-            exCard.classList.add('completed');
+            exCard.classList.add("completed");
             completedExercises++;
             spawnSparkleBurst(completeBtn);
           }
@@ -390,9 +405,9 @@ document.addEventListener('DOMContentLoaded', () => {
       phaseEl.appendChild(bodyEl);
 
       // Collapse/Expand toggle on header click
-      headerEl.addEventListener('click', () => {
-        phaseEl.classList.toggle('open');
-        if (phaseEl.classList.contains('open')) {
+      headerEl.addEventListener("click", () => {
+        phaseEl.classList.toggle("open");
+        if (phaseEl.classList.contains("open")) {
           collapsedPhases.delete(phase.phase);
         } else {
           collapsedPhases.add(phase.phase);
@@ -405,35 +420,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── IntersectionObserver for active nav ───
   function setupIntersectionObserver() {
-    const phaseElements = document.querySelectorAll('.phase-card');
-    const navItems = document.querySelectorAll('.nav-link');
+    const phaseElements = document.querySelectorAll(".phase-card");
+    const navItems = document.querySelectorAll(".nav-link");
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const phaseNum = entry.target.id.replace('phase-', '');
-          navItems.forEach(nav => {
-            nav.classList.toggle('active', nav.dataset.phase === phaseNum);
-          });
-        }
-      });
-    }, {
-      rootMargin: '-20% 0px -70% 0px',
-      threshold: 0
-    });
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const phaseNum = entry.target.id.replace("phase-", "");
+            navItems.forEach((nav) => {
+              nav.classList.toggle("active", nav.dataset.phase === phaseNum);
+            });
+          }
+        });
+      },
+      {
+        rootMargin: "-20% 0px -70% 0px",
+        threshold: 0,
+      },
+    );
 
-    phaseElements.forEach(el => observer.observe(el));
+    phaseElements.forEach((el) => observer.observe(el));
   }
 
   // ─── Progress ───
   function updateProgress() {
     progressText.textContent = `${completedExercises} / ${totalExercises} Completed`;
-    const percentage = totalExercises === 0 ? 0 : (completedExercises / totalExercises) * 100;
+    const percentage =
+      totalExercises === 0 ? 0 : (completedExercises / totalExercises) * 100;
     progressBar.style.width = `${percentage}%`;
   }
 
   function saveProgress() {
-    localStorage.setItem('jsGuideCompleted', JSON.stringify([...completedSet]));
+    localStorage.setItem("jsGuideCompleted", JSON.stringify([...completedSet]));
   }
 
   // ─── Helpers ───
@@ -452,17 +471,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const x = rect.left + rect.width / 2;
     const y = rect.top + rect.height / 2;
 
-    const sparkleChars = ['✦', '✧', '⭐', '✨', '·', '★'];
+    const sparkleChars = ["✦", "✧", "⭐", "✨", "·", "★"];
 
     for (let i = 0; i < 10; i++) {
-      const sparkle = document.createElement('span');
-      sparkle.className = 'sparkle-particle';
-      sparkle.textContent = sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
+      const sparkle = document.createElement("span");
+      sparkle.className = "sparkle-particle";
+      sparkle.textContent =
+        sparkleChars[Math.floor(Math.random() * sparkleChars.length)];
       sparkle.style.left = `${x}px`;
       sparkle.style.top = `${y}px`;
-      sparkle.style.color = ['#6366f1', '#f59e0b', '#10b981', '#ef4444', '#ec4899', '#06b6d4'][Math.floor(Math.random() * 6)];
-      sparkle.style.transition = 'all 0.8s cubic-bezier(0.1, 0.8, 0.3, 1)';
-      sparkle.style.opacity = '1';
+      sparkle.style.color = [
+        "#6366f1",
+        "#f59e0b",
+        "#10b981",
+        "#ef4444",
+        "#ec4899",
+        "#06b6d4",
+      ][Math.floor(Math.random() * 6)];
+      sparkle.style.transition = "all 0.8s cubic-bezier(0.1, 0.8, 0.3, 1)";
+      sparkle.style.opacity = "1";
 
       document.body.appendChild(sparkle);
 
@@ -473,7 +500,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const velocity = 40 + Math.random() * 60;
 
       sparkle.style.transform = `translate(${Math.cos(angle) * velocity}px, ${Math.sin(angle) * velocity - 40}px) scale(${0.8 + Math.random()})`;
-      sparkle.style.opacity = '0';
+      sparkle.style.opacity = "0";
 
       setTimeout(() => sparkle.remove(), 850);
     }
@@ -483,14 +510,15 @@ document.addEventListener('DOMContentLoaded', () => {
   function initFloatingParticles() {
     if (!particlesContainer) return;
 
-    const particleSymbols = ['·', '•', '✦', '✧'];
+    const particleSymbols = ["·", "•", "✦", "✧"];
 
     setInterval(() => {
       if (document.hidden) return;
 
-      const particle = document.createElement('span');
-      particle.className = 'heart-particle';
-      particle.textContent = particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
+      const particle = document.createElement("span");
+      particle.className = "heart-particle";
+      particle.textContent =
+        particleSymbols[Math.floor(Math.random() * particleSymbols.length)];
 
       const size = Math.random() * 14 + 8;
       const left = Math.random() * 100;
@@ -510,16 +538,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Mobile Menu Toggle ───
   if (menuToggle) {
-    menuToggle.addEventListener('click', () => {
-      sidebar.classList.toggle('open');
+    menuToggle.addEventListener("click", () => {
+      sidebar.classList.toggle("open");
     });
   }
 
   // Close sidebar when clicking outside on mobile
-  document.addEventListener('click', (e) => {
-    if (window.innerWidth <= 900 && sidebar.classList.contains('open')) {
-      if (!sidebar.contains(e.target) && e.target !== menuToggle && !menuToggle.contains(e.target)) {
-        sidebar.classList.remove('open');
+  document.addEventListener("click", (e) => {
+    if (window.innerWidth <= 900 && sidebar.classList.contains("open")) {
+      if (
+        !sidebar.contains(e.target) &&
+        e.target !== menuToggle &&
+        !menuToggle.contains(e.target)
+      ) {
+        sidebar.classList.remove("open");
       }
     }
   });
@@ -529,14 +561,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const totalPhases = curriculum.length;
     let totalEx = 0;
     const topicsSet = new Set();
-    curriculum.forEach(p => {
+    curriculum.forEach((p) => {
       totalEx += p.exercises.length;
-      (p.topics || []).forEach(t => topicsSet.add(t));
+      (p.topics || []).forEach((t) => topicsSet.add(t));
     });
 
-    animateCount('stat-phases', totalPhases);
-    animateCount('stat-exercises', totalEx);
-    animateCount('stat-topics', topicsSet.size);
+    animateCount("stat-phases", totalPhases);
+    animateCount("stat-exercises", totalEx);
+    animateCount("stat-topics", topicsSet.size);
   }
 
   function animateCount(id, target) {
@@ -557,74 +589,75 @@ document.addEventListener('DOMContentLoaded', () => {
   animateStats();
 
   // ─── Collapse All / Expand All ───
-  const btnCollapseAll = document.getElementById('btn-collapse-all');
-  const btnExpandAll = document.getElementById('btn-expand-all');
+  const btnCollapseAll = document.getElementById("btn-collapse-all");
+  const btnExpandAll = document.getElementById("btn-expand-all");
 
   if (btnCollapseAll) {
-    btnCollapseAll.addEventListener('click', () => {
-      document.querySelectorAll('.phase-card').forEach(card => {
-        card.classList.remove('open');
+    btnCollapseAll.addEventListener("click", () => {
+      document.querySelectorAll(".phase-card").forEach((card) => {
+        card.classList.remove("open");
       });
       rippleButton(btnCollapseAll);
     });
   }
 
   if (btnExpandAll) {
-    btnExpandAll.addEventListener('click', () => {
-      document.querySelectorAll('.phase-card').forEach(card => {
-        card.classList.add('open');
+    btnExpandAll.addEventListener("click", () => {
+      document.querySelectorAll(".phase-card").forEach((card) => {
+        card.classList.add("open");
       });
       rippleButton(btnExpandAll);
     });
   }
 
   // ─── Grid View Toggle ───
-  const btnGridView = document.getElementById('btn-grid-view');
+  const btnGridView = document.getElementById("btn-grid-view");
   let isGridView = false;
 
   if (btnGridView) {
-    btnGridView.addEventListener('click', () => {
+    btnGridView.addEventListener("click", () => {
       isGridView = !isGridView;
-      const container = document.getElementById('curriculum-container');
+      const container = document.getElementById("curriculum-container");
       if (isGridView) {
-        container.classList.add('grid-layout');
-        btnGridView.classList.add('active-toggle');
+        container.classList.add("grid-layout");
+        btnGridView.classList.add("active-toggle");
         btnGridView.innerHTML = '<i class="fa-solid fa-list"></i> List View';
       } else {
-        container.classList.remove('grid-layout');
-        btnGridView.classList.remove('active-toggle');
-        btnGridView.innerHTML = '<i class="fa-solid fa-table-cells-large"></i> Grid View';
+        container.classList.remove("grid-layout");
+        btnGridView.classList.remove("active-toggle");
+        btnGridView.innerHTML =
+          '<i class="fa-solid fa-table-cells-large"></i> Grid View';
       }
       rippleButton(btnGridView);
     });
   }
 
   // ─── Topics Modal ───
-  const btnTopicsView = document.getElementById('btn-topics-view');
-  const topicsModal = document.getElementById('topics-modal');
-  const closeTopics = document.getElementById('close-topics');
-  const topicsCloud = document.getElementById('topics-cloud');
+  const btnTopicsView = document.getElementById("btn-topics-view");
+  const topicsModal = document.getElementById("topics-modal");
+  const closeTopics = document.getElementById("close-topics");
+  const topicsCloud = document.getElementById("topics-cloud");
 
   function populateTopicsCloud() {
     if (!topicsCloud) return;
-    topicsCloud.innerHTML = '';
+    topicsCloud.innerHTML = "";
     const allTopics = [];
-    curriculum.forEach(p => {
-      (p.topics || []).forEach(t => {
+    curriculum.forEach((p) => {
+      (p.topics || []).forEach((t) => {
         if (!allTopics.includes(t)) allTopics.push(t);
       });
     });
     allTopics.sort();
-    allTopics.forEach(topic => {
-      const chip = document.createElement('span');
-      chip.className = 'topic-chip';
+    allTopics.forEach((topic) => {
+      const chip = document.createElement("span");
+      chip.className = "topic-chip";
       chip.textContent = topic;
-      chip.addEventListener('click', () => {
+      chip.addEventListener("click", () => {
         closeModal(topicsModal);
-        const searchInput = document.getElementById('search-input');
+        const searchInput = document.getElementById("search-input");
         if (searchInput) {
           searchInput.value = topic;
-          searchInput.dispatchEvent(new Event('input'));
+          searchInput.dispatchEvent(new Event("input"));
           searchInput.focus();
         }
       });
@@ -633,45 +666,45 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   if (btnTopicsView) {
-    btnTopicsView.addEventListener('click', () => {
+    btnTopicsView.addEventListener("click", () => {
       populateTopicsCloud();
       openModal(topicsModal);
     });
   }
 
   if (closeTopics) {
-    closeTopics.addEventListener('click', () => closeModal(topicsModal));
+    closeTopics.addEventListener("click", () => closeModal(topicsModal));
   }
 
   // ─── Shortcuts Modal ───
-  const btnShortcuts = document.getElementById('btn-shortcuts');
-  const shortcutsModal = document.getElementById('shortcuts-modal');
-  const closeShortcuts = document.getElementById('close-shortcuts');
+  const btnShortcuts = document.getElementById("btn-shortcuts");
+  const shortcutsModal = document.getElementById("shortcuts-modal");
+  const closeShortcuts = document.getElementById("close-shortcuts");
 
   if (btnShortcuts) {
-    btnShortcuts.addEventListener('click', () => openModal(shortcutsModal));
+    btnShortcuts.addEventListener("click", () => openModal(shortcutsModal));
   }
 
   if (closeShortcuts) {
-    closeShortcuts.addEventListener('click', () => closeModal(shortcutsModal));
+    closeShortcuts.addEventListener("click", () => closeModal(shortcutsModal));
   }
 
   // ─── Modal Helpers ───
   function openModal(modal) {
     if (!modal) return;
-    modal.classList.add('open');
-    document.body.style.overflow = 'hidden';
+    modal.classList.add("open");
+    document.body.style.overflow = "hidden";
   }
 
   function closeModal(modal) {
     if (!modal) return;
-    modal.classList.remove('open');
-    document.body.style.overflow = '';
+    modal.classList.remove("open");
+    document.body.style.overflow = "";
   }
 
   // Close modals when clicking overlay
-  document.querySelectorAll('.modal-overlay').forEach(overlay => {
-    overlay.addEventListener('click', (e) => {
+  document.querySelectorAll(".modal-overlay").forEach((overlay) => {
+    overlay.addEventListener("click", (e) => {
       if (e.target === overlay) {
         closeModal(overlay);
       }
@@ -679,18 +712,19 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // ─── Download Curriculum as Markdown ───
-  const btnDownload = document.getElementById('btn-download');
+  const btnDownload = document.getElementById("btn-download");
 
   if (btnDownload) {
-    btnDownload.addEventListener('click', () => {
-      let md = '# JavaScript → React Roadmap\n\n';
-      md += '> A structured curriculum covering every JavaScript concept you need before jumping into React.\n\n';
-      md += '---\n\n';
+    btnDownload.addEventListener("click", () => {
+      let md = "# JavaScript → React Roadmap\n\n";
+      md +=
+        "> A structured curriculum covering every JavaScript concept you need before jumping into React.\n\n";
+      md += "---\n\n";
 
-      curriculum.forEach(phase => {
+      curriculum.forEach((phase) => {
         md += `## Phase ${phase.phase}: ${phase.title}\n\n`;
         md += `${phase.description}\n\n`;
-        md += `**Topics:** ${(phase.topics || []).join(', ')}\n\n`;
+        md += `**Topics:** ${(phase.topics || []).join(", ")}\n\n`;
 
         phase.exercises.forEach((ex, idx) => {
           md += `### Exercise ${idx + 1}\n\n`;
@@ -698,82 +732,84 @@ document.addEventListener('DOMContentLoaded', () => {
           if (ex.hint) md += `> 💡 **Hint:** ${ex.hint}\n\n`;
           md += `**Expected Output:**\n\`\`\`\n${ex.expectedResult}\n\`\`\`\n\n`;
           md += `**Solution:**\n\`\`\`javascript\n${ex.solutionCode}\n\`\`\`\n\n`;
-          md += '---\n\n';
+          md += "---\n\n";
         });
       });
 
-      const blob = new Blob([md], { type: 'text/markdown' });
+      const blob = new Blob([md], { type: "text/markdown" });
       const url = URL.createObjectURL(blob);
-      const a = document.createElement('a');
+      const a = document.createElement("a");
       a.href = url;
-      a.download = 'js-react-roadmap.md';
+      a.download = "js-react-roadmap.md";
       a.click();
       URL.revokeObjectURL(url);
 
       // Visual feedback
       const originalHTML = btnDownload.innerHTML;
       btnDownload.innerHTML = '<i class="fa-solid fa-check"></i> Downloaded!';
-      btnDownload.style.pointerEvents = 'none';
+      btnDownload.style.pointerEvents = "none";
       setTimeout(() => {
         btnDownload.innerHTML = originalHTML;
-        btnDownload.style.pointerEvents = '';
+        btnDownload.style.pointerEvents = "";
       }, 2000);
     });
   }
 
   // ─── Back to Top ───
-  const backToTopBtn = document.getElementById('back-to-top');
-  const mainEl = document.querySelector('.main');
+  const backToTopBtn = document.getElementById("back-to-top");
+  const mainEl = document.querySelector(".main");
 
   if (backToTopBtn && mainEl) {
-    mainEl.addEventListener('scroll', () => {
+    mainEl.addEventListener("scroll", () => {
       if (mainEl.scrollTop > 400) {
-        backToTopBtn.classList.add('visible');
+        backToTopBtn.classList.add("visible");
       } else {
-        backToTopBtn.classList.remove('visible');
+        backToTopBtn.classList.remove("visible");
       }
     });
 
     // Also listen on window scroll as fallback
-    window.addEventListener('scroll', () => {
+    window.addEventListener("scroll", () => {
       if (window.scrollY > 400) {
-        backToTopBtn.classList.add('visible');
+        backToTopBtn.classList.add("visible");
       } else {
-        backToTopBtn.classList.remove('visible');
+        backToTopBtn.classList.remove("visible");
       }
     });
 
-    backToTopBtn.addEventListener('click', () => {
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      mainEl.scrollTo({ top: 0, behavior: 'smooth' });
+    backToTopBtn.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      mainEl.scrollTo({ top: 0, behavior: "smooth" });
     });
   }
 
   // ─── Keyboard Shortcuts ───
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener("keydown", (e) => {
     // Don't trigger shortcuts when typing in input fields
-    const isTyping = ['INPUT', 'TEXTAREA', 'SELECT'].includes(document.activeElement.tagName);
+    const isTyping = ["INPUT", "TEXTAREA", "SELECT"].includes(
+      document.activeElement.tagName,
+    );
 
     // Ctrl+K or / → Focus search
-    if ((e.ctrlKey && e.key === 'k') || (!isTyping && e.key === '/')) {
+    if ((e.ctrlKey && e.key === "k") || (!isTyping && e.key === "/")) {
       e.preventDefault();
-      const searchInput = document.getElementById('search-input');
+      const searchInput = document.getElementById("search-input");
       if (searchInput) searchInput.focus();
       return;
     }
 
     // Escape → Close modals / clear search
-    if (e.key === 'Escape') {
-      const openModals = document.querySelectorAll('.modal-overlay.open');
+    if (e.key === "Escape") {
+      const openModals = document.querySelectorAll(".modal-overlay.open");
       if (openModals.length > 0) {
-        openModals.forEach(m => closeModal(m));
+        openModals.forEach((m) => closeModal(m));
       } else {
-        const searchInput = document.getElementById('search-input');
+        const searchInput = document.getElementById("search-input");
         if (searchInput && searchInput.value) {
-          searchInput.value = '';
-          const clearBtn = document.getElementById('search-clear');
-          if (clearBtn) clearBtn.classList.remove('visible');
-          filterExercises('');
+          searchInput.value = "";
+          const clearBtn = document.getElementById("search-clear");
+          if (clearBtn) clearBtn.classList.remove("visible");
+          filterExercises("");
           searchInput.blur();
         }
       }
@@ -783,35 +819,35 @@ document.addEventListener('DOMContentLoaded', () => {
     if (isTyping) return;
 
     // [ → Collapse All
-    if (e.key === '[') {
+    if (e.key === "[") {
       e.preventDefault();
       if (btnCollapseAll) btnCollapseAll.click();
       return;
     }
 
     // ] → Expand All
-    if (e.key === ']') {
+    if (e.key === "]") {
       e.preventDefault();
       if (btnExpandAll) btnExpandAll.click();
       return;
     }
 
     // G → Toggle Grid View
-    if (e.key === 'g' || e.key === 'G') {
+    if (e.key === "g" || e.key === "G") {
       e.preventDefault();
       if (btnGridView) btnGridView.click();
       return;
     }
 
     // Ctrl+D → Download
-    if (e.ctrlKey && e.key === 'd') {
+    if (e.ctrlKey && e.key === "d") {
       e.preventDefault();
       if (btnDownload) btnDownload.click();
       return;
     }
 
     // ? → Shortcuts modal
-    if (e.key === '?') {
+    if (e.key === "?") {
       e.preventDefault();
       openModal(shortcutsModal);
       return;
@@ -820,14 +856,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // ─── Button Ripple Effect ───
   function rippleButton(btn) {
-    btn.style.transform = 'scale(0.95)';
+    btn.style.transform = "scale(0.95)";
     setTimeout(() => {
-      btn.style.transform = '';
+      btn.style.transform = "";
     }, 150);
   }
 
   // ─── Active toggle styling for toolbar buttons ───
-  const toolbarStyle = document.createElement('style');
+  const toolbarStyle = document.createElement("style");
   toolbarStyle.textContent = `
     .toolbar-btn.active-toggle {
       background: var(--c-primary-bg);
@@ -836,5 +872,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   `;
   document.head.appendChild(toolbarStyle);
-
 });
