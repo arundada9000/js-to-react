@@ -1,6 +1,6 @@
 # JS → React Roadmap
 
-A structured JavaScript curriculum designed to prepare you for React development. Built with vanilla JS — no frameworks, no shortcuts.
+A structured JavaScript curriculum designed to prepare you for React development. Built with vanilla JS - no frameworks, no shortcuts.
 
 ![Landing Page](assets/documentation-images/landing-page.png)
 
@@ -40,7 +40,7 @@ A structured JavaScript curriculum designed to prepare you for React development
 
 ## Quick Start
 
-Open `index.html` in your browser — no build step, no dependencies.
+Open `index.html` in your browser - no build step, no dependencies.
 
 [Full Documentation →](docs/index.md)
 
@@ -51,4 +51,4 @@ Open `index.html` in your browser — no build step, no dependencies.
 
 ## License
 
-MIT — built with ❤️ by Arun Neupane
+MIT - built with ❤️ by Arun Neupane

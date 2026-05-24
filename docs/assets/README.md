@@ -4,8 +4,8 @@ Logos and images used in documentation.
 
 ## Logos (`../assets/logos/`)
 
-- `cfc-logo.png` — Primary CFC logo
-- `CFC Rupandehi Official Logo.png` — Full official logo
+- `cfc-logo.png` - Primary CFC logo
+- `CFC Rupandehi Official Logo.png` - Full official logo
 
 ## Screenshots (`../assets/documentation-images/`)
 

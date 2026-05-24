@@ -4,7 +4,7 @@ const curriculum = [
     phase: 1,
     title: "JavaScript Foundations",
     description:
-      "The building blocks of every JavaScript program — variables, data types, and outputting values to the console.",
+      "The building blocks of every JavaScript program - variables, data types, and outputting values to the console.",
     color: "#6366f1",
     icon: "fa-solid fa-cube",
     topics: [
@@ -73,7 +73,7 @@ console.log(\`Total with VAT: Rs. \${total}\`);`,
     phase: 2,
     title: "Control Flow",
     description:
-      "Making decisions in your code — conditionals let your program choose different paths based on data.",
+      "Making decisions in your code - conditionals let your program choose different paths based on data.",
     color: "#f59e0b",
     icon: "fa-solid fa-code-branch",
     topics: [
@@ -161,7 +161,7 @@ console.log(\`Let's go to the \${place}!\`);`,
     phase: 3,
     title: "Functions",
     description:
-      "Reusable blocks of code — functions are the core of how you organize logic in JavaScript and React.",
+      "Reusable blocks of code - functions are the core of how you organize logic in JavaScript and React.",
     color: "#10b981",
     icon: "fa-solid fa-gear",
     topics: [
@@ -227,7 +227,7 @@ console.log(bill);`,
         expectedResult: `{customer: "Pooja", itemCount: 3, subtotal: 430, vat: 55.9, total: 485.9}`,
       },
       {
-        question: `Demonstrate scope: create a function outerFn that defines a variable city = "Butwal". Inside it, define innerFn that defines food = "momo" and logs both city and food. Call outerFn(). Then try to log city outside — what happens?`,
+        question: `Demonstrate scope: create a function outerFn that defines a variable city = "Butwal". Inside it, define innerFn that defines food = "momo" and logs both city and food. Call outerFn(). Then try to log city outside - what happens?`,
         hint: "Variables defined inside a function are not accessible outside. Inner functions CAN access variables from outer functions (closure).",
         solutionCode: `function outerFn() {
   const city = "Butwal";
@@ -255,7 +255,7 @@ city and food are not accessible outside their functions`,
     phase: 4,
     title: "Arrays",
     description:
-      "Ordered collections of data — arrays are used everywhere in JavaScript and are essential for rendering lists in React.",
+      "Ordered collections of data - arrays are used everywhere in JavaScript and are essential for rendering lists in React.",
     color: "#3b82f6",
     icon: "fa-solid fa-list-ol",
     topics: [
@@ -338,7 +338,7 @@ Total items: 6`,
     phase: 5,
     title: "Objects",
     description:
-      "Key-value data structures — objects model real-world entities and are the backbone of React state and props.",
+      "Key-value data structures - objects model real-world entities and are the backbone of React state and props.",
     color: "#8b5cf6",
     icon: "fa-solid fa-cube",
     topics: [
@@ -446,7 +446,7 @@ selRoti: Rs. 30`,
     phase: 6,
     title: "Modern ES6+",
     description:
-      "Modern JavaScript syntax used heavily in React — destructuring, spread, and more make your code cleaner and shorter.",
+      "Modern JavaScript syntax used heavily in React - destructuring, spread, and more make your code cleaner and shorter.",
     color: "#ec4899",
     icon: "fa-solid fa-wand-magic-sparkles",
     topics: [
@@ -540,7 +540,7 @@ Card: No card on file`,
     phase: 7,
     title: "Array Methods (React Essentials)",
     description:
-      "The most important methods for React — map, filter, find, and reduce are used constantly for rendering lists, filtering data, and computing values.",
+      "The most important methods for React - map, filter, find, and reduce are used constantly for rendering lists, filtering data, and computing values.",
     color: "#ef4444",
     icon: "fa-solid fa-fire",
     topics: [
@@ -640,7 +640,7 @@ console.log("Top students:", topStudents);`,
     phase: 8,
     title: "Asynchronous JavaScript",
     description:
-      "Handling operations that take time — fetching data, waiting for responses, and managing async flow with Promises and async/await.",
+      "Handling operations that take time - fetching data, waiting for responses, and managing async flow with Promises and async/await.",
     color: "#06b6d4",
     icon: "fa-solid fa-clock",
     topics: [
@@ -756,7 +756,7 @@ chatpate: Rs. 50`,
     phase: 9,
     title: "DOM Manipulation",
     description:
-      "Interacting with web pages — selecting elements, changing content, handling events. This is what React automates for you.",
+      "Interacting with web pages - selecting elements, changing content, handling events. This is what React automates for you.",
     color: "#f97316",
     icon: "fa-solid fa-window-maximize",
     topics: [
@@ -854,7 +854,7 @@ console.log(\`Found \${items.length} menu items\`);`,
     phase: 10,
     title: "Putting It All Together",
     description:
-      "Combining everything you've learned — working with complex data, building app logic, and patterns you'll use daily in React.",
+      "Combining everything you've learned - working with complex data, building app logic, and patterns you'll use daily in React.",
     color: "#14b8a6",
     icon: "fa-solid fa-trophy",
     topics: [
@@ -902,7 +902,7 @@ console.log(getStats(todos));`,
 {total: 3, completed: 1, pending: 2}`,
       },
       {
-        question: `Build a contact list system for people in Butwal. Create functions:\n- addContact(contacts, name, phone)\n- searchContacts(contacts, query) — searches by name (case-insensitive)\n- deleteContact(contacts, id)\nAdd 4 contacts, search for one, delete one, then print the remaining list.`,
+        question: `Build a contact list system for people in Butwal. Create functions:\n- addContact(contacts, name, phone)\n- searchContacts(contacts, query) - searches by name (case-insensitive)\n- deleteContact(contacts, id)\nAdd 4 contacts, search for one, delete one, then print the remaining list.`,
         hint: "Use filter() for search and delete. Use toLowerCase() and includes() for case-insensitive search. Spread operator to add new contacts immutably.",
         solutionCode: `let contactId = 1;
 

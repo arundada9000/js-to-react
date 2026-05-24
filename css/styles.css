@@ -1,11 +1,11 @@
 /* ===================================================
-   JS → React Roadmap — Stylesheet
+   JS → React Roadmap - Stylesheet
    Clean, modern, premium developer aesthetic
    =================================================== */
 
 /* ---------- Design Tokens ---------- */
 :root {
-  /* Colors — Sophisticated indigo-violet palette */
+  /* Colors - Sophisticated indigo-violet palette */
   --c-bg: #f5f5f7;
   --c-surface: #ffffff;
   --c-surface-hover: #fafafa;

@@ -1,4 +1,4 @@
-# JS → React Roadmap — Documentation
+# JS → React Roadmap - Documentation
 
 ![CFC Logo](../assets/logos/cfc-logo.png)
 
@@ -58,7 +58,7 @@ This project is a **comprehensive JavaScript curriculum** built as a single-page
 | Syntax Highlighting | Prism.js |
 | Celebrations | canvas-confetti |
 | Icons | Font Awesome 6 |
-| Typography | Google Fonts — Inter (UI) & JetBrains Mono (code) |
+| Typography | Google Fonts - Inter (UI) & JetBrains Mono (code) |
 | Contact Forms | Web3Forms |
 | Ads | Google AdSense |
 | Hosting | Vercel |

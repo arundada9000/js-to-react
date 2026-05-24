@@ -1,4 +1,4 @@
-# Arun Neupane — Author Profile
+# Arun Neupane - Author Profile
 
 > Source: [arunneupane.netlify.app](https://arunneupane.netlify.app)
 
@@ -28,8 +28,8 @@
 
 ## Profiles
 
-- **GitHub:** [github.com/arundada9000](https://github.com/arundada9000) — all projects
-- **Website:** [arunneupane.netlify.app](https://arunneupane.netlify.app) — portfolio
+- **GitHub:** [github.com/arundada9000](https://github.com/arundada9000) - all projects
+- **Website:** [arunneupane.netlify.app](https://arunneupane.netlify.app) - portfolio
 - **Facebook:** [facebook.com/arundada9000](https://www.facebook.com/arundada9000/)
 - **Instagram:** [instagram.com/arundada9000](https://www.instagram.com/arundada9000/)
 - **Email:** arunneupane0000@gmail.com
@@ -41,10 +41,10 @@
 
 | Qualification                                        | Institution | Date      |
 | ---------------------------------------------------- | ----------- | --------- |
-| **BSc. CSIT** (Computer Science & IT) — 5th semester | Nepal       | Completed |
+| **BSc. CSIT** (Computer Science & IT) - 5th semester | Nepal       | Completed |
 | The Complete HTML and CSS Course                     | Bro Code    | Jan 2023  |
 | JavaScript Course: From 0 to Expert                  | Bro Code    | Feb 2023  |
-| React — The Complete Guide                           | Dave Gray   | Apr 2024  |
+| React - The Complete Guide                           | Dave Gray   | Apr 2024  |
 
 ---
 
@@ -78,15 +78,15 @@
 | **Easy Sorting**                | Sorting algorithms visualized step by step. Built from scratch with vanilla HTML, CSS, JS. | [easysorting.netlify.app](https://easysorting.netlify.app)           | [GitHub](https://github.com/arundada9000/Sorting)                       | Aug 2024 |
 | **Unit Converter**              | Real-time unit conversion across multiple systems.                                         | [allunitconverter.netlify.app](https://allunitconverter.netlify.app) | [GitHub](https://github.com/arundada9000/Unit-Converter)                | Sep 2024 |
 | **QR Code Scanner and Creator** | Create and scan QR codes, save generated codes.                                            | [easyqrcreate.netlify.app](https://easyqrcreate.netlify.app)         | [GitHub](https://github.com/arundada9000/Qr-code-scanner-and-generator) | Oct 2024 |
-| **Random Number Generator**     | Generates random numbers, passwords, coin toss, dice throws.                               | [pseudorandom.netlify.app](https://pseudorandom.netlify.app)         | [GitHub](https://github.com/arundada9000/Random-Number)                 | —        |
-| **Stack Visualization**         | Step-by-step Stack Data Structure visualization with code.                                 | [easystack.netlify.app](https://easystack.netlify.app)               | [GitHub](https://github.com/arundada9000/stack)                         | —        |
+| **Random Number Generator**     | Generates random numbers, passwords, coin toss, dice throws.                               | [pseudorandom.netlify.app](https://pseudorandom.netlify.app)         | [GitHub](https://github.com/arundada9000/Random-Number)                 | -        |
+| **Stack Visualization**         | Step-by-step Stack Data Structure visualization with code.                                 | [easystack.netlify.app](https://easystack.netlify.app)               | [GitHub](https://github.com/arundada9000/stack)                         | -        |
 
 ---
 
 ## Design Preferences
 
-- **Primary color:** `hsl(230, 69%, 61%)` — medium blue-purple (~#4D6CFA)
-- **Accent:** `#FF0066` — hot pink (used in decorative blobs)
+- **Primary color:** `hsl(230, 69%, 61%)` - medium blue-purple (~#4D6CFA)
+- **Accent:** `#FF0066` - hot pink (used in decorative blobs)
 - **Typography:** Poppins, sans-serif (Google Fonts)
 - **Approach:** Mobile-first, dark/light theme toggle
 - **Layout:** CSS Grid, max container 768px
@@ -118,13 +118,13 @@
 ## Testimonials
 
 > "Arun is my good friend. And more than that he is a good programmer. We code together and I will admit he is my dad when it comes to coding."
-> — **Arjun Ghimire**, Friend & Fellow Programmer
+> - **Arjun Ghimire**, Friend & Fellow Programmer
 
 > "Arun is my dearest friend. We have great visions of achieving great success and then enjoying together. He codes most of his times and he certainly is my dad in coding."
-> — **Amrit Tharuwa**, Friend & Fellow Programmer
+> - **Amrit Tharuwa**, Friend & Fellow Programmer
 
 > "We plan to succeed together in this technological world. Arun is a reliable goto when it comes to frontend."
-> — **Dinesh Sharma**, Friend & Collaborator
+> - **Dinesh Sharma**, Friend & Collaborator
 
 ---
 

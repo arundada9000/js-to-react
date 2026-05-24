@@ -7,7 +7,7 @@
 **Repository:** [github.com/arundada9000/js-to-react](https://github.com/arundada9000/js-to-react)  
 **Live Site:** [pre-mern.vercel.app](https://pre-mern.vercel.app)
 
-> ⚠️ **Status:** Planned — implementation pending icon assets.  
+> ⚠️ **Status:** Planned - implementation pending icon assets.  
 > This guide outlines the steps to convert this project into a fully installable Progressive Web App.
 
 ---

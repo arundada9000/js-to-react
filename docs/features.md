@@ -30,8 +30,8 @@ Test your knowledge with interactive flashcards. Flip cards to reveal answers. N
 ## 4. Pomodoro Timer & Lo-Fi Beats
 
 Stay focused with:
-- **Pomodoro timer** — 25-minute focus sessions
-- **Lo-Fi music player** — background beats for concentration
+- **Pomodoro timer** - 25-minute focus sessions
+- **Lo-Fi music player** - background beats for concentration
 
 ## 5. Dark / Light Theme
 
@@ -56,7 +56,7 @@ Toggle between single-column list and multi-column grid layouts.
 
 ## 9. Keyboard Shortcuts
 
-Full keyboard navigation support — see [Getting Started](getting-started.md#keyboard-shortcuts).
+Full keyboard navigation support - see [Getting Started](getting-started.md#keyboard-shortcuts).
 
 ![Keyboard Shortcuts](../assets/documentation-images/shortcuts.png)
 
@@ -96,8 +96,8 @@ Mobile-first layout with sidebar drawer on small screens, adaptive typography an
 
 ## Planned Features
 
-- **PWA support** — offline access, installable app
-- **Service worker** — caching for offline use
-- **Push notifications** — study reminders
+- **PWA support** - offline access, installable app
+- **Service worker** - caching for offline use
+- **Push notifications** - study reminders
 
 *See [PWA Setup](pwa-setup.md) for the upcoming PWA implementation plan.*

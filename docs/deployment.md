@@ -9,7 +9,7 @@
 
 ---
 
-This is a static site — no build step required. Deploy anywhere that serves static files.
+This is a static site - no build step required. Deploy anywhere that serves static files.
 
 ## Option 1: Vercel (Current)
 

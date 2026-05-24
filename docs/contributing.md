@@ -22,18 +22,18 @@ Thanks for your interest in contributing to the JS → React Roadmap!
 
 ## Code Style
 
-- **HTML** — semantic elements, proper heading hierarchy, ARIA labels
-- **CSS** — custom properties, no `!important`, mobile-first media queries
-- **JS** — ES6+, `const`/`let`, no global pollution, `DOMContentLoaded` wrapper
-- No Prettier/ESLint config — keep formatting consistent with existing code
+- **HTML** - semantic elements, proper heading hierarchy, ARIA labels
+- **CSS** - custom properties, no `!important`, mobile-first media queries
+- **JS** - ES6+, `const`/`let`, no global pollution, `DOMContentLoaded` wrapper
+- No Prettier/ESLint config - keep formatting consistent with existing code
 
 ## Adding Curriculum Content
 
-Edit `js/curriculum.js` — each exercise needs:
-- `question` — markdown-compatible string
-- `hint` *(optional)* — string
-- `expectedResult` — string
-- `solutionCode` — JavaScript code
+Edit `js/curriculum.js` - each exercise needs:
+- `question` - markdown-compatible string
+- `hint` *(optional)* - string
+- `expectedResult` - string
+- `solutionCode` - JavaScript code
 
 ## Reporting Issues
 

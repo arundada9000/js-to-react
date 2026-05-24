@@ -148,7 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 <div class="mac-btn min-btn" title="Minimize"></div>
                 <div class="mac-btn max-btn" title="Exit Fullscreen"></div>
               </div>
-              <span class="runner-title">JS Code Runner — Fullscreen</span>
+              <span class="runner-title">JS Code Runner - Fullscreen</span>
               <button class="btn-run"><i class="fa-solid fa-play"></i> Run</button>
             </div>
             <div class="runner-body" style="display:flex; flex-direction:column; flex:1; min-height:0;">

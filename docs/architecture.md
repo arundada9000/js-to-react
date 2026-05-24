@@ -11,7 +11,7 @@
 
 ## Overview
 
-The app is a **single-page application** built with vanilla JavaScript. No frameworks — just HTML, CSS, and JS.
+The app is a **single-page application** built with vanilla JavaScript. No frameworks - just HTML, CSS, and JS.
 
 ## Data Flow
 
@@ -27,11 +27,11 @@ curriculum.js (data) → app.js (renders UI)
 
 ### `js/curriculum.js`
 Central data file containing all 10 phases of curriculum. Each phase has:
-- `phase` — number
+- `phase` - number
 - `title`, `description`
-- `icon`, `color` — for UI styling
-- `topics` — array of topic tags
-- `exercises` — array of exercise objects with `question`, `hint`, `expectedResult`, `solutionCode`
+- `icon`, `color` - for UI styling
+- `topics` - array of topic tags
+- `exercises` - array of exercise objects with `question`, `hint`, `expectedResult`, `solutionCode`
 
 ### `js/app.js`
 Main application controller:
@@ -45,7 +45,7 @@ Main application controller:
 - Download as Markdown
 
 ### `js/projects.js`
-Project showcase section — renders project cards with code tabs, difficulty badges, and copy functionality.
+Project showcase section - renders project cards with code tabs, difficulty badges, and copy functionality.
 
 ### `js/darkmode.js`
 Theme management:
@@ -89,9 +89,9 @@ Media queries at 900px and 480px for responsive breakpoints. Includes `prefers-r
 ## State Management
 
 State is managed via:
-- **localStorage** — for persisted data (completed exercises, dark mode preference, pomodoro state)
-- **JavaScript closures** — within `DOMContentLoaded` callback
-- **DOM attributes** — class toggles for UI state
+- **localStorage** - for persisted data (completed exercises, dark mode preference, pomodoro state)
+- **JavaScript closures** - within `DOMContentLoaded` callback
+- **DOM attributes** - class toggles for UI state
 
 ## PWA Readiness
 

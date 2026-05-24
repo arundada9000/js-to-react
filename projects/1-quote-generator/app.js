@@ -16,7 +16,7 @@ quoteBtn.addEventListener("click", () => {
   // Get random quote
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   quoteText.textContent = `"${randomQuote.text}"`;
-  quoteAuthor.textContent = `— ${randomQuote.author}`;
+  quoteAuthor.textContent = `- ${randomQuote.author}`;
 
   // Get random soft background color
   const randomColor = colors[Math.floor(Math.random() * colors.length)];

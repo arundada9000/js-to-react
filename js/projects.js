@@ -9,7 +9,7 @@ const projectIdeas = [
   <div class="quote-box">
     <i class="fa-solid fa-quote-left quote-icon"></i>
     <p id="quote-text">"First, solve the problem. Then, write the code."</p>
-    <p id="quote-author">— John Johnson</p>
+    <p id="quote-author">- John Johnson</p>
   </div>
   <button id="quote-btn">
     <i class="fa-solid fa-rotate"></i> New Quote
@@ -106,7 +106,7 @@ quoteBtn.addEventListener("click", () => {
   // Get random quote
   const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
   quoteText.textContent = \`"\${randomQuote.text}"\`;
-  quoteAuthor.textContent = \`— \${randomQuote.author}\`;
+  quoteAuthor.textContent = \`- \${randomQuote.author}\`;
 
   // Get random soft background color
   const randomColor = colors[Math.floor(Math.random() * colors.length)];
