@@ -7,6 +7,96 @@
     "ArrowLeft", "ArrowRight", "ArrowLeft", "ArrowRight",
     "b", "a",
   ];
+  var _0x0 = !1;
+
+  function _0x2(a) {
+    return String.fromCharCode.apply(null, a);
+  }
+
+  function _0x3(a) {
+    for (var b = [], c = 0; c < a.length; c++) b.push(a.charCodeAt(c));
+    return b;
+  }
+
+  var _0x4 = [
+    115, 117, 98, 101, 107, 115, 104, 121, 97,
+  ];
+  var _0x5 = [115, 117, 98, 117];
+  var _0x6 = [
+    115, 117, 98, 101, 107, 115, 104, 121, 97, 32, 83, 97, 112, 107, 111, 116,
+    97,
+  ];
+
+  function _0x7() {
+    if (_0x2(_0x3("confetti")) !== "confetti" || typeof confetti !== "function") return;
+    var a = Date.now() + 5e3;
+    !(function b() {
+      confetti({
+        particleCount: 3,
+        spread: 360,
+        origin: { y: 0.5 + (Math.random() - 0.5) * 0.4, x: 0.5 + (Math.random() - 0.5) * 0.4 },
+        colors: ["#ff6b81", "#ff2d55", "#ff3b30", "#fff0f2", "#ff0066"],
+        shapes: ["circle"],
+        ticks: 200,
+        scalar: 1.5,
+      });
+      if (Date.now() < a) requestAnimationFrame(b);
+    })();
+  }
+
+  function _0x8() {
+    try {
+      var a = new (window.AudioContext || window.webkitAudioContext)();
+      var b = [523.25, 587.33, 659.25, 783.99, 659.25, 587.33, 523.25];
+      var c = 0;
+      function d() {
+        if (c >= b.length) return;
+        var e = a.createOscillator();
+        var f = a.createGain();
+        e.type = "sine";
+        e.frequency.value = b[c];
+        f.gain.setValueAtTime(0.15, a.currentTime);
+        f.gain.exponentialRampToValueAtTime(0.001, a.currentTime + 0.8);
+        e.connect(f);
+        f.connect(a.destination);
+        e.start(a.currentTime);
+        e.stop(a.currentTime + 0.8);
+        c++;
+        setTimeout(d, 350);
+      }
+      d();
+    } catch (e) {}
+  }
+
+  function _0x9() {
+    if (_0x0) return;
+    _0x0 = !0;
+    _0xa();
+    _0x7();
+    _0x8();
+  }
+
+  function _0xa() {
+    var a =
+      "background:linear-gradient(135deg,#ff2d55,#ff6b81);color:#fff;padding:14px 24px;font-size:22px;font-weight:900;font-family:Inter,sans-serif;border-radius:12px;line-height:1.6;box-shadow:0 0 40px rgba(255,45,85,0.4)";
+    var b =
+      "background:#fff0f2;color:#ff2d55;padding:8px 24px 16px;font-size:16px;font-weight:600;font-family:Inter,sans-serif;border-radius:0 0 12px 12px;line-height:1.8;border-left:3px solid #ff6b81";
+    var c = _0x2(_0x4);
+    var d = _0x2(_0x6);
+    console.log(
+      "%c\u2764\uFE0F\u2764\uFE0F\u2764\uFE0F I Love You, " +
+        d.charAt(0).toUpperCase() + d.slice(1) + "! \u2764\uFE0F\u2764\uFE0F\u2764\uFE0F",
+      a
+    );
+    console.log(
+      "%cEvery line of code in this project was written with love. Just like this message.\nYou mean more than any bug fix, any feature, any deployment.\nForever and always, \u2764\uFE0F",
+      b
+    );
+    console.log(
+      "%c  \u266A Playing a special melody just for you...",
+      "color:#aeaeb2;font-size:12px;font-style:italic;font-family:Inter,sans-serif;padding:4px 0"
+    );
+  }
 
   function styledLog(msg, style) {
     console.log("%c" + msg, style);
@@ -157,6 +247,22 @@
       showKonami();
     }
   });
+
+  (function () {
+    var a = {};
+    function b(c, d) {
+      Object.defineProperty(c, _0x2(d), {
+        get: function () {
+          _0x9();
+          return _0x2([10084, 65039]);
+        },
+        configurable: false,
+        enumerable: true,
+      });
+    }
+    b(window, _0x4);
+    b(window, _0x5);
+  })();
 
   showWelcome();
   var interval = setInterval(checkDevTools, 1500);
